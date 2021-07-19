@@ -1,0 +1,36 @@
+.header{
+    width: 100%;
+    padding: 8px 0;
+    height: 50px;
+    background-color: gold;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+.header__container{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__logo{
+    object-fit: contain;
+    width: 25%;
+    left: 0;
+    cursor: pointer;
+    padding-left: 15px;
+}
+
+.header__right{
+    display: flex;
+    flex-direction: column;
+    padding-right: 15px;
+}
+.contents{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.header__right > .header__icons{
+    right: 20px
+}
