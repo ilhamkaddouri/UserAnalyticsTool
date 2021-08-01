@@ -1,0 +1,53 @@
+{
+    "Header.website":"Tous Les sites",
+    "Header.manager":"Gestionner des taches",
+    "Header.dashboard":"Dashboard",
+
+
+    "Dashboard.title": "Dashboard",
+    "Dashboard.users": "Users",
+    "Welcome to React": "Bienvenue à React et react-i18next",
+    "Dashboard.visits":"Les Visites",
+    "Dashboard.visitsInrealTime":"Visites en temps Real",
+    "Dashboard.visitsOverTime":"Visites hors heure",
+    "Dashboard.visitorMap":"Visiteur Map",
+    "Dashboard.visitsMoversShakes":"Mouvements and Shakers",
+    "Dashboard.visitsOverview":"Visites total",
+    "Dashboard.channelTypes":"Channels",
+
+
+    "Visitors.title":"Visiteurs",
+    "Visitors.overView":"Apercu",
+    "Visitors.visitsLog":"Log de visiteurs",
+    "Visitors.realtimeMap":"Carte en temps reel",
+    "Visitors.locations":"Locations",
+    "Visitors.Devices":"Devices",
+    "Visitors.software":"Logiciel",
+    "Visitors.times":"Temps",
+    
+    "Behavior.title":"Comportement",
+    "Behavior.pages":"Pages",
+    "Behavior.entryPages":"Pages Entrants",
+    "Behavior.exitPages":"Pages de sortie",
+    "Behavior.pageTitles":"Titres de Pages",
+    "Behavior.downloads":"Telechargement",
+    "Behavior.siteSearch":"Recherche de site",
+    "Behavior.userFlow":"flux d'utilisateurs",
+    
+    "Insights.title":"Prediction",
+    "Insights.visitsPerTime":"visiteurs per time",
+    "Insights.usersLocation":"Locations",
+
+    "HeatMaps.title":"HeatMaps",
+    "HeatMaps.mange":"Manage HeatMaps",
+
+    "Goals.title":"Goals",
+    "Goals.overview":"OverView",
+    "Goals.contractUsage":"Contract Usage",
+    "Goals.manage":"Manage Goals",
+
+    "Users.title":"Users",
+    "Users.manage":"Insights"
+    
+    
+}

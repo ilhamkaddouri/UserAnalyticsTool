@@ -7,165 +7,162 @@ import InvertColorsIcon from '@material-ui/icons/InvertColors';
 import AdjustIcon from '@material-ui/icons/Adjust';
 import WebAssetIcon from '@material-ui/icons/WebAsset';
 import ContactlessIcon from '@material-ui/icons/Contactless';
+
 export const sidebarData = [
     {
-        title: 'Dashboard',
+        title: 'Dashboard.title',
         path: '/',
-        icon: <DashboardIcon/>,
-        iconClosed: <ExpandMoreIcon/>,
-        iconOpened: <ExpandLessIcon/> ,
+        icon: <DashboardIcon fontSize="small"/>,
+        iconClosed: <ExpandMoreIcon fontSize="small"/>,
+        iconOpened: <ExpandLessIcon fontSize="small"/> ,
         subMenu: [
             {
-                title: 'Dashboard',
+                title: 'Dashboard.title',
                 path: '/',
             }
         ]
     },
     {
-        title: 'Visitors',
+        title: 'Visitors.title',
         path: '/visitors',
-        icon: <RemoveRedEyeIcon/> ,
-        iconClosed: <ExpandMoreIcon/> ,
-        iconOpened: <ExpandLessIcon/> ,
+        icon: <RemoveRedEyeIcon fontSize="small"/> ,
+        iconClosed: <ExpandMoreIcon fontSize="small"/> ,
+        iconOpened: <ExpandLessIcon fontSize="small"/> ,
         subMenu: [
             {
-                title: 'Overview',
+                title: 'Visitors.overView',
                 path: '/visitors'
             },
             {
-                title: 'Visits log',
+                title: 'Visitors.visitsLog',
                 path: ''
             },
             {
-                title: 'Real-time',
+                title: 'Visitors.realtime',
                 path: ''
             },
             {
-                title: 'Real-time Map',
+                title: 'Visitors.realtimeMap',
                 path: ''
             },
             {
-                title: 'Locations',
+                title: 'Visitors.locations',
                 path: ''
             },
             {
-                title: 'Devices',
+                title: 'Visitors.Devices',
                 path: ''
             },
             {
-                title: 'Software',
+                title: 'Visitors.software',
                 path: ''
             },
             {
-                title: 'Times',
+                title: 'Visitors.times',
                 path: ''
             },
 
         ]
     },
     {
-        title: 'Behaviour',
+        title: 'Behavior.title',
         path: '/behavior',
-        icon: <NotificationsIcon/> ,
-        iconClosed: <ExpandMoreIcon/> ,
-        iconOpened: <ExpandLessIcon/>,
+        icon: <NotificationsIcon fontSize="small"/> ,
+        iconClosed: <ExpandMoreIcon fontSize="small"/> ,
+        iconOpened: <ExpandLessIcon fontSize="small"/>,
         subMenu: [
             {
-                title: 'Pages',
+                title: 'Behavior.pages',
                 path: '',
             },
             {
-                title: 'Entry pages',
+                title: 'Behavior.entryPages',
                 path: '',
             },
             {
-                title: 'Exit pages',
+                title: 'Behavior.exitPages',
                 path: '',
             },
             {
-                title: 'Exit pages',
+                title: 'Behavior.pageTitles',
                 path: '',
             },
             {
-                title: 'Pages titles',
+                title: 'Behavior.downloads',
                 path: '',
             },
             {
-                title: 'Downloads',
+                title: 'Behavior.siteSearch',
                 path: '',
             },
             {
-                title: 'Site Search',
-                path: '',
-            },
-            {
-                title: 'Users flow',
+                title: 'Behavior.userFlow',
                 path: '',
             },
 
         ]
     },
     {
-        title: 'Insights',
+        title: 'Insights.title',
         path: '/insights',
-        icon: <ContactlessIcon/> ,
-        iconClosed: <ExpandMoreIcon/> ,
-        iconOpened: <ExpandLessIcon/> ,
+        icon: <ContactlessIcon fontSize="small"/> ,
+        iconClosed: <ExpandMoreIcon fontSize="small"/> ,
+        iconOpened: <ExpandLessIcon fontSize="small"/> ,
         subMenu: [
             {
-                title: 'Predict users visits per time',
+                title: 'Insights.visitsPerTime',
                 path: '',
             },
             {
-                title: 'Predict users locations',
+                title: 'Insights.usersLocation',
                 path: '',
             },
         ]
     },
     {
-        title: 'HeatMaps',
+        title: 'HeatMaps.title',
         path: '/heatMaps',
-        icon: <InvertColorsIcon/> ,
-        iconClosed: <ExpandMoreIcon/> ,
-        iconOpened: <ExpandLessIcon/> ,
+        icon: <InvertColorsIcon fontSize="small"/> ,
+        iconClosed: <ExpandMoreIcon fontSize="small"/> ,
+        iconOpened: <ExpandLessIcon fontSize="small"/> ,
         subMenu: [
             {
-                title: 'Manage HeatMaps',
+                title: 'HeatMaps.mange',
                 path: '',
             },
         ]
     },
     {
-        title: 'Goals',
+        title: 'Goals.title',
         path: '/goals',
-        icon: <AdjustIcon/> ,
-        iconClosed: <ExpandMoreIcon/> ,
-        iconOpened: <ExpandLessIcon/> ,
+        icon: <AdjustIcon fontSize="small"/> ,
+        iconClosed: <ExpandMoreIcon fontSize="small"/> ,
+        iconOpened: <ExpandLessIcon fontSize="small"/> ,
         subMenu: [
             {
-                title: 'Overview',
+                title: 'Goals.overview',
                 path: '',
             },
             {
-                title: 'Contracts Usage',
+                title: 'Goals.contractUsage',
                 path: '',
             },
             {
-                title: 'Manage Goals',
+                title: 'Goals.manage',
                 path: '',
             },
 
         ]
     },
     {
-        title: 'Users',
+        title: 'Users.title',
         path: '/users',
-        icon: <WebAssetIcon/> ,
-        iconClosed: <ExpandMoreIcon/> ,
-        iconOpened: <ExpandLessIcon/> ,
+        icon: <WebAssetIcon fontSize="small"/> ,
+        iconClosed: <ExpandMoreIcon fontSize="small"/> ,
+        iconOpened: <ExpandLessIcon fontSize="small"/> ,
         subMenu: [
             {
-                title: 'Manage Reports',
+                title: 'Users.manage',
                 path: '',
             },
         ]

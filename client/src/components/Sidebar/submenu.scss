@@ -6,17 +6,30 @@
     justify-content: space-between;
     padding: 15px;
     list-style: none;
-    font-size: 16px;
+    font-size: 15px;
 
 }
 .submenu__link:hover{
-    background-color: aliceblue;
+   
+}
+.submenu__content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.submenu__content:hover{
+    color:#ed6602;
     cursor: pointer;
 }
 .submenu__title{
-    margin-left: 16px;
+    margin-left: 18px;
+    font-size: 15px;
+    font-weight: bold;
 }
 .submenu__row{
     align-items: center;
     justify-content: center;
+}
+.submenu__sub__title{
+    margin-left: 38px;
 }

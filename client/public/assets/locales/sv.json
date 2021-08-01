@@ -1,0 +1,52 @@
+{
+    "Header.website":"All Websites",
+    "Header.manager":"Task Manager",
+    "Header.dashboard":"Dashboard",
+    
+    "Dashboard.title": "Dashboard from localess",
+    "Dashboard.users": "Users",
+    "Welcome to React": "Bienvenue à React et react-i18next",
+    "Dashboard.visits":"Visits",
+    "Dashboard.visitsInrealTime":"Visits in Real-Time",
+    "Dashboard.visitsOverTime":"Visits Over Time",
+    "Dashboard.visitorMap":"Visitor Map",
+    "Dashboard.visitsMoversShakes":"Movers and Shakers",
+    "Dashboard.visitsOverview":"Visits OverView",
+    "Dashboard.channelTypes":"Channel Types",
+
+
+    "Visitors.title":"Visitors",
+    "Visitors.overView":"Overview",
+    "Visitors.visitsLog":"Visits Log",
+    "Visitors.realtineMap":"Real-Time Map",
+    "Visitors.locations":"Locations",
+    "Visitors.Devices":"Devices",
+    "Visitors.software":"Software",
+    "Visitors.times":"Times",
+    
+    "Behavior.title":"Behavior",
+    "Behavior.pages":"Pages",
+    "Behavior.entryPages":"Entry Pages",
+    "Behavior.exitPages":"Exit Pages",
+    "Behavior.pageTitles":"Pages Titles",
+    "Behavior.downloads":"Downloads",
+    "Behavior.siteSearch":"Site Searche",
+    "Behavior.userFlow":"Users flow",
+    
+    "Insights.title":"Insights",
+    "Insights.visitsPerTime":"Visits per time",
+    "Insights.usersLocation":"Users Locations",
+
+    "HeatMaps.title":"HeatMaps",
+    "HeatMaps.mange":"Manage HeatMaps",
+
+    "Goals.title":"Goals",
+    "Goals.overview":"OverView",
+    "Goals.contractUsage":"Contract Usage",
+    "Goals.manage":"Manage Goals",
+
+    "Users.title":"Users",
+    "Users.manage":"Insights"
+    
+    
+}
