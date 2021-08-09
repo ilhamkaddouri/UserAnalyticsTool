@@ -7,13 +7,15 @@ import {Insights} from '../pages/Insights/Insights'
 import {HeatMaps} from '../pages/HeatMaps/HeatMaps'
 import {Goals} from '../pages/Goals/Goals'
 import {Users} from '../pages/Users/Users'
+import {Login} from '../components/auth/Login/Login'
+import {Register} from '../components/auth/Register/Register'
 interface indexProps {
 
 }
 
 export const Router: React.FC<indexProps> = ({}) => {
     return (
-        <Switch>
+        <>
             <Route component={Dashboard} path="/" exact/>
             
 
@@ -32,6 +34,6 @@ export const Router: React.FC<indexProps> = ({}) => {
 
             <Route component={Users} path="/users" exact/>
 
-        </Switch>
+        </>
     );
 }

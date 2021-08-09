@@ -1,0 +1,23 @@
+.login__container{
+    margin: auto;
+    width: 80%;
+    background-color: rgb(240, 142, 15);
+}
+
+.login__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.login__input{
+    width: 30%;
+    margin-top: 25px;
+}
+
+.login__button{
+    width: 30%;
+    margin-top: 45px;
+}

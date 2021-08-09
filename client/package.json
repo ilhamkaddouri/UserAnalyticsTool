@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.12.1",
+    "@material-ui/core": "^4.12.3",
     "@material-ui/data-grid": "^4.0.0-alpha.34",
     "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.4",
@@ -25,6 +25,8 @@
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-simple-maps": "^2.3.0",
+    "react-tooltip": "^4.2.21",
     "recharts": "^2.0.9",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
@@ -54,6 +56,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-simple-maps": "^1.0.6",
     "node-sass": "^4.14.1",
     "sass-loader": "^10.1.1"
   }

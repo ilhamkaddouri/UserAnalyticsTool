@@ -1,0 +1,16 @@
+.register__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.register__input{
+    width: 30%;
+    margin-top: 15px;
+}
+
+.register__button{
+    width: 30%;
+    margin-top: 25px;
+}

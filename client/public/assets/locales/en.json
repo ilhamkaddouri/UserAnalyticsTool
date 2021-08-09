@@ -46,7 +46,14 @@
     "Goals.manage":"Manage Goals",
 
     "Users.title":"Users",
-    "Users.manage":"Manage users"
+    "Users.manage":"Manage users",
     
-    
+    "Login.email":"Email",
+    "Login.password":"Password",
+    "Login.firstName":"First Name",
+    "Login.lastName":"Last Name",
+    "Login.username":"Username",
+    "Login.action":"Login",
+    "Register.action":"Register"
+
 }

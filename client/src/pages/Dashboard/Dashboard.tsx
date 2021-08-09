@@ -3,6 +3,7 @@ import './dashboard.scss'
 import {VisitsChart} from '../../common/components/Visits/VisitsChart'
 import {VisitsTable} from '../../common/components/VisitsTable/VisitsTable'
 import {useTranslation} from 'react-i18next'
+import { WorldMapChart } from '../../common/components/Map/WorldMapChart'
 const data = [
     {
         month: 'Jun',
@@ -118,6 +119,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
             <div>
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visitorMap')}</span>
+                    <WorldMapChart/>
                 </div>
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.channelTypes')}</span>

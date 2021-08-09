@@ -46,7 +46,15 @@
     "Goals.manage":"Manage Goals",
 
     "Users.title":"Users",
-    "Users.manage":"Insights"
+    "Users.manage":"Insights",
+
+    "Login.email":"Email",
+    "Login.password":"Password",
+    "Login.firstName":"First Name",
+    "Login.lastName":"Last Name",
+    "Login.username":"Username",
+    "Login.action":"Login",
+    "Register.action":"Register"
     
     
 }

@@ -1,25 +1,33 @@
 import './App.scss';
-import {Toolbar} from './components/Toolbar/Toolbar'
-import {Sidebar} from './components/Sidebar/Sidebar'
-import {BrowserRouter} from 'react-router-dom'
+import { Toolbar } from './components/Toolbar/Toolbar'
+import { Sidebar } from './components/Sidebar/Sidebar'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Router } from './routes/index'
 import { useTranslation } from 'react-i18next';
-import {Router} from './routes/index'
+import { Login } from './components/auth/Login/Login'
+import {Register} from './components/auth/Register/Register'
 function App() {
   const { t, i18n } = useTranslation();
   return (
     <div>
       <BrowserRouter>
-      <Toolbar/>
-      <div className="app__container">
-        <Sidebar/>
-          <div className='pages__container'>
-          <Router>
-            {t('Dashboard.title')}
-          </Router>
-        </div>
-      </div>
-      </BrowserRouter>
-    </div>
+        <Switch>
+          <Route component={Login} path="/auth/login" exact />
+          <Route component={Register} path="/auth/register" exact />
+          <>
+            <Toolbar />
+            <div className="app__container">
+              <Sidebar />
+              <div className='pages__container'>
+                <Router>
+                  {t('Dashboard.title')}
+                </Router>
+              </div>
+            </div>
+        </>
+      </Switch>
+    </BrowserRouter>
+    </div >
   );
 }
 

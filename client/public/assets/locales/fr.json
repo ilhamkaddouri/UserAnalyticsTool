@@ -47,7 +47,13 @@
     "Goals.manage":"Manage Goals",
 
     "Users.title":"Users",
-    "Users.manage":"Insights"
+    "Users.manage":"Insights",
     
-    
+    "Login.email":"Email",
+    "Login.password":"Most de passe",
+    "Login.firstName":"Nom",
+    "Login.lastName":"Prenom",
+    "Login.username":"Username",
+    "Login.action":"S'authentifier",
+    "Register.action":"S'inscrire"
 }
