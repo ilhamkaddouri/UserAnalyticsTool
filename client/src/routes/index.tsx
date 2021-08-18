@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom';
+import { Route} from 'react-router-dom';
 import {Dashboard} from '../pages/Dashboard/Dashboard';
 import {Visitors} from '../pages/Visitors/Visitors';
 import {Behavior} from '../pages/Behavior/Behavior'
@@ -7,8 +7,7 @@ import {Insights} from '../pages/Insights/Insights'
 import {HeatMaps} from '../pages/HeatMaps/HeatMaps'
 import {Goals} from '../pages/Goals/Goals'
 import {Users} from '../pages/Users/Users'
-import {Login} from '../components/auth/Login/Login'
-import {Register} from '../components/auth/Register/Register'
+
 interface indexProps {
 
 }

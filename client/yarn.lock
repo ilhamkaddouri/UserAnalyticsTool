@@ -3707,7 +3707,7 @@
     "strip-ansi" "^6.0.0"
     "wrap-ansi" "^6.2.0"
 
-"clsx@^1.0.4":
+"clsx@^1.0.4", "clsx@^1.1.1":
   "integrity" "sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA=="
   "resolved" "https://registry.npmjs.org/clsx/-/clsx-1.1.1.tgz"
   "version" "1.1.1"
@@ -5708,6 +5708,11 @@
   dependencies:
     "locate-path" "^5.0.0"
     "path-exists" "^4.0.0"
+
+"flag-icon-css@^3.5.0":
+  "integrity" "sha512-pgJnJLrtb0tcDgU1fzGaQXmR8h++nXvILJ+r5SmOXaaL/2pocunQo2a8TAXhjQnBpRLPtZ1KCz/TYpqeNuE2ew=="
+  "resolved" "https://registry.npmjs.org/flag-icon-css/-/flag-icon-css-3.5.0.tgz"
+  "version" "3.5.0"
 
 "flat-cache@^3.0.4":
   "integrity" "sha512-dm9s5Pw7Jc0GvMYbshN6zchCA9RgQlzzEZX3vylR9IqFfS8XciblUXOKfW6SiuJ0e13eDYZoZV5wdrev7P3Nwg=="

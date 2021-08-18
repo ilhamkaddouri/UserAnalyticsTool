@@ -3,6 +3,7 @@ import { LanguageItems } from './LanguageItems'
 import { Link } from 'react-router-dom'
 import i18next from 'i18next'
 import './dropdownlanguage.scss'
+import 'flag-icon-css/css/flag-icon.min.css'
 interface DropDownLanguageProps {
 
 }

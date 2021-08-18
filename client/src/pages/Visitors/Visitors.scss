@@ -1,0 +1,17 @@
+.visitors__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+
+}
+
+.visitors__element__title{
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.graph__options{
+    display: flex;
+    justify-content: space-around;
+}
