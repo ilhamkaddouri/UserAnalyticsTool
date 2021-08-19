@@ -15,7 +15,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import PersonIcon from '@material-ui/icons/Person';
 import LockIcon from '@material-ui/icons/Lock';
-
+import {Link} from 'react-router-dom'
 import clsx from 'clsx';
 
 import { Header } from '../Header/Header'
@@ -127,6 +127,7 @@ export const Login: React.FC<LoginProps> = ({ }) => {
                 </div>
                 <div className="login__forget__password">
                     <span className="login__forget__password__span"><a href=''>Forgot your password?</a></span>
+                    <span className="login__forget__password__span"><Link to='/auth/register'>Sign Up</Link></span>
                 </div>
             </form>
         </div>
