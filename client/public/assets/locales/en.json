@@ -17,8 +17,8 @@
     "Visitors.title":"Visitors",
     "Visitors.overView":"Overview",
     "Visitors.visitsLog":"Visits Log",
-    "Visitors.realtimeMap":"Real-Time",
-    "Visitors.realtime":"Real-Time Map",
+    "Visitors.realtimeMap":"Real-Time Map",
+    "Visitors.realtime":"Real-Time",
     "Visitors.locations":"Locations",
     "Visitors.Devices":"Devices",
     "Visitors.software":"Software",
@@ -50,7 +50,13 @@
 
     "Users.title":"Users",
     "Users.manage":"Manage users",
-    
+
+    "Forms.title":"Forms",
+    "Forms.manage":"Manage Forms",
+    "Forms.overview":"Overview",
+    "Forms.realTime":"Real-Time",
+
+
     "Login.email":"Email",
     "Login.password":"Password",
     "Login.firstName":"First Name",

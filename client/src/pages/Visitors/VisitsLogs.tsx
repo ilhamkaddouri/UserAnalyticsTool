@@ -12,7 +12,6 @@ export const VisitsLogs: React.FC<VisitsLogsProps> = ({}) => {
         <div className="page__container">
             <div className="element__container">
                 <span className='visitors__element__title'>{t('Visitors.vistisOverTime')}</span>
-                
                 <div>
                 <div className='graph__options'>
                     

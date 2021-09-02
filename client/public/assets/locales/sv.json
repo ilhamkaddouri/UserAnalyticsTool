@@ -50,6 +50,11 @@
     "Users.title":"Users",
     "Users.manage":"Insights",
 
+    "Forms.title":"Forms",
+    "Forms.manage":"Manage Forms",
+    "Forms.overview":"Overview",
+    "Forms.realTime":"Real-Time",
+
     "Login.email":"Email",
     "Login.password":"Password",
     "Login.firstName":"First Name",

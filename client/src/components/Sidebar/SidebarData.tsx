@@ -7,7 +7,7 @@ import InvertColorsIcon from '@material-ui/icons/InvertColors';
 import AdjustIcon from '@material-ui/icons/Adjust';
 import WebAssetIcon from '@material-ui/icons/WebAsset';
 import ContactlessIcon from '@material-ui/icons/Contactless';
-
+import ReorderIcon from '@material-ui/icons/Reorder';
 export const sidebarData = [
     {
         title: 'Dashboard.title',
@@ -35,31 +35,31 @@ export const sidebarData = [
             },
             {
                 title: 'Visitors.visitsLog',
-                path: ''
+                path: '/visitors/visitsLog'
             },
             {
                 title: 'Visitors.realtime',
-                path: ''
+                path: '/visitors/realtime'
             },
             {
                 title: 'Visitors.realtimeMap',
-                path: ''
+                path: '/visitors/realtimeMap'
             },
             {
                 title: 'Visitors.locations',
-                path: ''
+                path: '/visitors/locations'
             },
             {
                 title: 'Visitors.Devices',
-                path: ''
+                path: '/visitors/devices'
             },
             {
                 title: 'Visitors.software',
-                path: ''
+                path: '/visitors/software'
             },
             {
                 title: 'Visitors.times',
-                path: ''
+                path: '/visitors/times'
             },
 
         ]
@@ -152,6 +152,27 @@ export const sidebarData = [
                 path: '',
             },
 
+        ]
+    },
+    {
+        title: 'Forms.title',
+        path: '/forms',
+        icon: <ReorderIcon fontSize="small"/> ,
+        iconClosed: <ExpandMoreIcon fontSize="small"/> ,
+        iconOpened: <ExpandLessIcon fontSize="small"/> ,
+        subMenu: [
+            {
+                title: 'Forms.overview',
+                path: '',
+            },
+            {
+                title: 'Forms.realTime',
+                path: '',
+            },
+            {
+                title: 'Forms.manage',
+                path: '',
+            },
         ]
     },
     {

@@ -1,0 +1,27 @@
+.visit__container{
+    display: flex;
+    
+}
+
+.visit__user{
+
+}
+
+.visit__action{
+
+}
+
+.visit__time{
+    font-size: 11px;
+}
+
+.visit__details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.item__image{
+    width: 16px;
+    object-fit: contain;
+}

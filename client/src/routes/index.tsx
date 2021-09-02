@@ -2,6 +2,10 @@ import React from 'react';
 import { Route} from 'react-router-dom';
 import {Dashboard} from '../pages/Dashboard/Dashboard';
 import {Visitors} from '../pages/Visitors/Visitors';
+import {RealTimeMap} from '../pages/Visitors/RealTimeMap'
+import {VisitsLogs} from '../pages/Visitors/VisitsLogs'
+import {Locations} from '../pages/Visitors/Locations'
+
 import {Behavior} from '../pages/Behavior/Behavior'
 import {Insights} from '../pages/Insights/Insights'
 import {HeatMaps} from '../pages/HeatMaps/HeatMaps'
@@ -19,7 +23,9 @@ export const Router: React.FC<indexProps> = ({}) => {
             
 
             <Route component={Visitors} path="/visitors" exact/>
-
+            <Route component={RealTimeMap} path="/visitors/realtimeMap" exact />
+            <Route component={VisitsLogs} path="/visitors/visitsLog" exact />
+            <Route component={Locations} path="/visitors/locations" exact />
 
             <Route component={Behavior} path="/behavior" exact/>
 
