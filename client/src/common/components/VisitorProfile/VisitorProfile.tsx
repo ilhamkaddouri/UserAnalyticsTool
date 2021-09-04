@@ -12,10 +12,17 @@ interface VisitorProfileProps {
 
 
 export const VisitorProfile: React.FC<VisitorProfileProps> = ({ item }) => {
-    const [hidden, setHidden] = useState<Boolean>(true)
+    const [hidden, setHidden] = useState<Boolean>(false)
+    const [hideMap, setHideMap] = useState<Boolean>(false)
     const handleHide = () => {
         setHidden(!hidden)
     }
+
+    const handleMap = ()=>{
+        setHideMap(!hideMap)
+    }
+
+
     return (
         <div className="visitor__profile">
             <div className="left__panel">
@@ -83,7 +90,10 @@ export const VisitorProfile: React.FC<VisitorProfileProps> = ({ item }) => {
                 </div>
                 <div className="locations">
                     <h5>Location</h5>
-                    <p>1 visit from Masku, Finland <Link to=''>(show on Map)</Link></p>
+                    <p>1 visit from Masku, Finland <Link to='' onClick={handleMap}>(show on Map)</Link></p>
+                    {
+                        hideMap && <div></div>
+                    }
                 </div>
             </div>
             <div className="right__panel">

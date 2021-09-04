@@ -4,6 +4,7 @@ import {VisitsChart} from '../../common/components/Visits/VisitsChart'
 import {VisitsTable} from '../../common/components/VisitsTable/VisitsTable'
 import {useTranslation} from 'react-i18next'
 import { WorldMapChart } from '../../common/components/Map/WorldMapChart'
+import { ChannelTable } from '../../common/components/ChannelTable/ChannelTable'
 const data = [
     {
         month: 'Jun',
@@ -101,28 +102,45 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
                 </div>
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visitsInrealTime')}</span>
-                    <VisitsTable/>
+                    <div className='dashboard__item'>
+                        <VisitsTable/>
+                    </div>
                 </div>
             </div>
             <div>
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visitsOverTime')}</span>
-                    <VisitsChart data={days}/>
+                    <div className='dashboard__item'>
+                        <VisitsChart data={days}/>
+                    </div>
                 </div>
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visitsMoversShakes')}</span>
+                    <div className='dashboard__item'>
+                        <div className="movers__content">No rows match this critrea</div>
+                    </div>
+
                 </div>
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visitsOverview')}</span>
+                    <div className='dashboard__item'>
+
+                    </div>
                 </div>
             </div>
             <div>
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visitorMap')}</span>
+                    <div className='dashboard__item'>
+
+                    </div>
                     <WorldMapChart/>
                 </div>
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.channelTypes')}</span>
+                    <div className='dashboard__item'>
+                        <ChannelTable/>
+                    </div>
                 </div>
             </div>
         </div>

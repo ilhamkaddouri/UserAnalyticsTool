@@ -1,7 +1,8 @@
 .table__actions{
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
+    left: 0;
+    right: 0;
 }
 
 .link__to__detail{
@@ -9,7 +10,9 @@
 }
 
 .link__to__detail{
-    color: #F68403;
+    color: #000000;
+    font-size: 14px;
+    right: 0;
 }
 
 .visits__container{

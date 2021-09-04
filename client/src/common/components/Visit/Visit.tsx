@@ -3,6 +3,7 @@ import './visit.scss'
 import 'flag-icon-css/css/flag-icon.min.css'
 import { IconButton } from '@material-ui/core';
 import RecentActorsIcon from '@material-ui/icons/RecentActors';
+import PersonIcon from '@material-ui/icons/Person';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import moment from 'moment'
@@ -94,6 +95,7 @@ export const Visit: React.FC<VisitProps> = ({ item }) => {
           IP: 12.36.98.23
           Visitor ID: XV67YH
           ' className={`flag-icon flag-icon-${item.code} mx-0.5`}></span>
+          <img className="item__image" src="https://img.icons8.com/fluency/48/000000/chrome.png" />
           <img title='Operating System: Windows 10' className="item__image" src="https://img.icons8.com/color/48/000000/windows-10.png" />
           <img title=' Device type: Desktop
           Device brand: Unknown
@@ -104,7 +106,7 @@ export const Visit: React.FC<VisitProps> = ({ item }) => {
                 <img src="https://img.icons8.com/color/48/000000/linux--v1.png" />
                 <img src="https://img.icons8.com/color/40/000000/mac-logo.png" /> */}
           <IconButton onClick={handleOpen} title='View Visitor Profile Details'>
-            <RecentActorsIcon />
+            <PersonIcon style={{color : 'black'}} />
           </IconButton>
         </div>
         <Modal
@@ -117,7 +119,7 @@ export const Visit: React.FC<VisitProps> = ({ item }) => {
         </Modal>
       </div>
       <div className='visit__action'>
-
+                action div
       </div>
     </div>
   );

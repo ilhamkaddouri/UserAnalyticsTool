@@ -1,10 +1,11 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
+import MuiTableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import PauseIcon from '@material-ui/icons/Pause';
@@ -17,6 +18,11 @@ const useStyles = makeStyles({
         width: '100%'
     },
 });
+const TableHeadColor = withStyles(theme => ({
+    root: {
+      backgroundColor: '#eff0f1'
+    }
+  }))(MuiTableHead);
 
 function createData(name: string, action: number, visit: number) {
     return { name, action, visit };
@@ -41,13 +47,13 @@ export const VisitsTable: React.FC<VisitsTableProps> = ({ }) => {
         <>
         <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
-                <TableHead>
+                <TableHeadColor>
                     <TableRow>
                         <TableCell>Date</TableCell>
                         <TableCell align="right">Actions</TableCell>
                         <TableCell align="right">Visits</TableCell>
                     </TableRow>
-                </TableHead>
+                </TableHeadColor>
                 <TableBody>
                     {rows.map((row) => (
                         <TableRow key={row.name}>

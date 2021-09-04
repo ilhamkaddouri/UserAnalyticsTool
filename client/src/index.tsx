@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './i18n/i18n.tsx';
 import 'flag-icon-css/css/flag-icon.min.css'
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
