@@ -43,7 +43,7 @@ export const ChannelTable: React.FC<ChannelTableProps> = ({ }) => {
     return (
         <>
         <TableContainer component={Paper}>
-          <Table className={classes.table} size="small" aria-label="a dense table">
+          <Table className={classes.table} size="small" aria-label="a dense table" style={{ width: '100%' }}>
             <TableHead>
               <TableRow>
                 <TableCell style={{ position: "sticky", backgroundColor: '#eff0f1' }}>Channel Type</TableCell>
@@ -59,7 +59,7 @@ export const ChannelTable: React.FC<ChannelTableProps> = ({ }) => {
             <TableBody>
               {rows.map((row) => (
                 <TableRow key={row.ChannelType}>
-                  <TableCell component="th" scope="row" style={{ backgroundColor: '#f0f4f4'}}>
+                  <TableCell component="th" scope="row" style={{ position: "sticky", left: 0,backgroundColor: '#f0f4f4'}}>
                     {row.ChannelType}
                   </TableCell>
                   <TableCell align="right">{row.uniqueVisitors}</TableCell>

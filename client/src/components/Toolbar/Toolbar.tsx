@@ -7,6 +7,7 @@ import LanguageIcon from '@material-ui/icons/Language';
 import {useTranslation} from 'react-i18next'
 import {DropDownLanguage} from './DropDownLanguage'
 import './toolbar.scss'
+import { Link } from 'react-router-dom';
 interface ToolbarProps {
 
 }
@@ -24,9 +25,9 @@ export const Toolbar: React.FC<ToolbarProps> = ({}) => {
                 </div>
                 <div className='header__right'>
                     <div className='header__links'>
-                        <span>{t('Header.dashboard')}</span>
-                        <span>{t('Header.website')}</span>
-                        <span>{t('Header.manager')}</span>
+                        <Link className='page__link' to='/dashboard'>{t('Header.dashboard')}</Link>
+                        <Link className='page__link' to='/allwebsites'>{t('Header.website')}</Link>
+                        <Link className='page__link' to='/taskManagers'>{t('Header.manager')}</Link>
                     </div>
                     <div className='header__icons'>
                         <button className='header__button'>

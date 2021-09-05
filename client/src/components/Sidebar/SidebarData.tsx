@@ -96,7 +96,7 @@ export const sidebarData = [
                 path: '',
             },
             {
-                title: 'Behavior.userFlow',
+                title: 'Behavior.performance',
                 path: '',
             },
 

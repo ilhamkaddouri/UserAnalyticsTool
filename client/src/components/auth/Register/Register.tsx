@@ -147,7 +147,7 @@ export const Register: React.FC<RegisterProps> = ({ }) => {
                     <Button variant="contained" className="login__button">Sign Up</Button>
                 </div>
                 <div className="login__forget__password">
-                    <span className="login__forget__password__span"><Link to='/auth/login'>Already have an Account? Sign In</Link></span>
+                    <span className="login__forget__password__span"><Link to='/'>Already have an Account? Sign In</Link></span>
                 </div>
             </form>
         </div>

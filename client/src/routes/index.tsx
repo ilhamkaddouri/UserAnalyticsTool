@@ -19,7 +19,7 @@ interface indexProps {
 export const Router: React.FC<indexProps> = ({}) => {
     return (
         <>
-            <Route component={Dashboard} path="/" exact/>
+            <Route component={Dashboard} path="/dashboard" exact/>
             
 
             <Route component={Visitors} path="/visitors" exact/>

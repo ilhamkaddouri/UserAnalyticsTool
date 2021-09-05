@@ -4,7 +4,7 @@ import {VisitsChart} from '../../common/components/Visits/VisitsChart'
 import {VisitsTable} from '../../common/components/VisitsTable/VisitsTable'
 import {useTranslation} from 'react-i18next'
 import { WorldMapChart } from '../../common/components/Map/WorldMapChart'
-import { ChannelTable } from '../../common/components/ChannelTable/ChannelTable'
+import { TableChannel } from '../../common/components/ChannelTable/TableChannel'
 const data = [
     {
         month: 'Jun',
@@ -96,7 +96,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
             <div>
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visits')}</span>
-                    <div>
+                    <div className='dashboard__item chart__item'>
                     <VisitsChart data={data}/>
                     </div>
                 </div>
@@ -132,14 +132,13 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visitorMap')}</span>
                     <div className='dashboard__item'>
-
+                        <WorldMapChart/>
                     </div>
-                    <WorldMapChart/>
                 </div>
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.channelTypes')}</span>
                     <div className='dashboard__item'>
-                        <ChannelTable/>
+                        <TableChannel/>
                     </div>
                 </div>
             </div>

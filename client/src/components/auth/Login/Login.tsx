@@ -17,6 +17,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import LockIcon from '@material-ui/icons/Lock';
 import {Link} from 'react-router-dom'
 import clsx from 'clsx';
+import { useHistory } from 'react-router-dom';
 
 import { Header } from '../Header/Header'
 import './login.scss'
@@ -51,6 +52,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const Login: React.FC<LoginProps> = ({ }) => {
     const { t } = useTranslation();
+    const history = useHistory();
     const classes = useStyles();
     const [values, setValues] = React.useState<State>({
         password: '',
@@ -75,6 +77,11 @@ export const Login: React.FC<LoginProps> = ({ }) => {
     const handleChangeCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
         setcheckBox({ ...checkBox, [event.target.name]: event.target.checked });
     }
+
+    const signIn = ()=>{
+        history.push('/dashboard')
+    }
+
     return (
         <div className="login__container">
             <Header />
@@ -123,11 +130,11 @@ export const Login: React.FC<LoginProps> = ({ }) => {
                             style={{ color: '#9e9e9e' }}
                         />
                     </FormGroup>
-                    <Button variant="contained" className="login__button">Sign In</Button>
+                    <Button variant="contained" className="login__button" onClick={signIn}>Sign In</Button>
                 </div>
                 <div className="login__forget__password">
                     <span className="login__forget__password__span"><a href=''>Forgot your password?</a></span>
-                    <span className="login__forget__password__span"><Link to='/auth/register'>Sign Up</Link></span>
+                    <span className="login__forget__password__span"><Link to='/register'>Sign Up</Link></span>
                 </div>
             </form>
         </div>

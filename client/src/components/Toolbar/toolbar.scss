@@ -61,3 +61,14 @@
 
 }
 
+.page__link{
+    text-decoration: none;
+    list-style: none;
+    color: black;
+    justify-content: space-between;
+    margin: 0 5px;
+}
+
+.page__link:hover{
+    color: rgb(145, 137, 137);
+}
