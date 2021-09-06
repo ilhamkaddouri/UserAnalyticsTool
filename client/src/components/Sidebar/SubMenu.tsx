@@ -38,7 +38,7 @@ export const SubMenu: React.FC<SubMenuProps> = ({item}) => {
             </Link>
             {subMenu && item.subMenu.map((item,index)=>{
                 return (
-                    <Link className='submenu__link' to={item.path}>
+                    <Link className='submenu__link' to={item.path} key={item.title}>
                         <span className='submenu__sub__title'>{t(`${item.title}`)}</span>
                     </Link>
                 )

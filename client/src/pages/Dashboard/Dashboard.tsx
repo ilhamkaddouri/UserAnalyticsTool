@@ -5,6 +5,7 @@ import {VisitsTable} from '../../common/components/VisitsTable/VisitsTable'
 import {useTranslation} from 'react-i18next'
 import { WorldMapChart } from '../../common/components/Map/WorldMapChart'
 import { TableChannel } from '../../common/components/ChannelTable/TableChannel'
+import { ChannelTable } from '../../common/components/ChannelTable/ChannelTable'
 const data = [
     {
         month: 'Jun',
@@ -138,7 +139,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.channelTypes')}</span>
                     <div className='dashboard__item'>
-                        <TableChannel/>
+                        <ChannelTable/>
                     </div>
                 </div>
             </div>

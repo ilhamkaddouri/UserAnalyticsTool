@@ -14,7 +14,7 @@ export const Sidebar: React.FC<SidebarProps> = ({}) => {
             <div className='sidebar__container'>
                 <div className="sidebar__menu">
                     {sidebarData.map((menuItem,index)=>{
-                        return <SubMenu item={menuItem} />
+                        return <SubMenu key={menuItem.title} item={menuItem} />
                     })}
                 </div>
             </div>

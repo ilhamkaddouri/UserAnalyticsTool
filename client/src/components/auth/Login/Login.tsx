@@ -18,7 +18,8 @@ import LockIcon from '@material-ui/icons/Lock';
 import {Link} from 'react-router-dom'
 import clsx from 'clsx';
 import { useHistory } from 'react-router-dom';
-
+import {logIn} from '../../../services/authService'
+import {User} from '../../../models/User'
 import { Header } from '../Header/Header'
 import './login.scss'
 import { Person } from '@material-ui/icons';
@@ -26,6 +27,7 @@ interface LoginProps {
 
 }
 interface State {
+    email: string,
     password: string;
     showPassword: boolean;
 }
@@ -54,7 +56,12 @@ export const Login: React.FC<LoginProps> = ({ }) => {
     const { t } = useTranslation();
     const history = useHistory();
     const classes = useStyles();
+
+    const [errors, setErrors] = useState([]);
+    
+
     const [values, setValues] = React.useState<State>({
+        email: '',
         password: '',
         showPassword: false,
     });
@@ -78,8 +85,20 @@ export const Login: React.FC<LoginProps> = ({ }) => {
         setcheckBox({ ...checkBox, [event.target.name]: event.target.checked });
     }
 
-    const signIn = ()=>{
-        history.push('/dashboard')
+    const signIn = async ()=>{
+        const email  = values.email
+        const password = values.password
+        const user = { email, password}
+        const result = await logIn(user)
+        console.log(result)
+        if(result.data.msg){
+            // errors.push('Invalid Credentials')
+            // setErrors(errors)
+            new Error('Invalid Credentials')
+        }else{
+            setTimeout(() => {}, 2000);
+            history.push('/dashboard')
+        }
     }
 
     return (
@@ -99,7 +118,8 @@ export const Login: React.FC<LoginProps> = ({ }) => {
                     <InputLabel className='login__input' htmlFor="standard-adornment-password"><PersonIcon fontSize='inherit'/> Username or Email</InputLabel>
                     <Input id="standard-adornment-password"
                         type='text'
-                        value={values.password}
+                        value={values.email}
+                        onChange={handleChange('email')}
                     />
                 </FormControl>
                 <FormControl className={clsx(classes.margin, classes.textField)}>

@@ -12,7 +12,7 @@ import MuiTableHead from '@material-ui/core/TableHead';
 
 const useStyles = makeStyles({
     table: {
-        
+        width:'70%'
     },
 });
 
@@ -47,13 +47,13 @@ export const ChannelTable: React.FC<ChannelTableProps> = ({ }) => {
             <TableHead>
               <TableRow>
                 <TableCell style={{ position: "sticky", backgroundColor: '#eff0f1' }}>Channel Type</TableCell>
-                <TableCell align="right">Visits</TableCell>
-                <TableCell align="right">Unique Visitors</TableCell>
-                <TableCell align="right">Visits</TableCell>
-                <TableCell align="right">Users</TableCell>
-                <TableCell align="right">Actions</TableCell>
+                <TableCell style={{ position: "sticky", backgroundColor: '#eff0f1' }} align="right">Visits</TableCell>
+                <TableCell style={{ position: "sticky", backgroundColor: '#eff0f1' }} align="right">Unique Visitors</TableCell>
+                <TableCell style={{ position: "sticky", backgroundColor: '#eff0f1' }} align="right">Visits</TableCell>
+                {/* <TableCell style={{ position: "sticky", backgroundColor: '#eff0f1' }} align="right">Users</TableCell> */}
+                {/* <TableCell align="right">Actions</TableCell>
                 <TableCell align="right">Actions per Visit</TableCell>
-                <TableCell align="right">Avg Time</TableCell>
+                <TableCell align="right">Avg Time</TableCell> */}
               </TableRow>
             </TableHead>
             <TableBody>
@@ -65,9 +65,9 @@ export const ChannelTable: React.FC<ChannelTableProps> = ({ }) => {
                   <TableCell align="right">{row.uniqueVisitors}</TableCell>
                   <TableCell align="right">{row.visits}</TableCell>
                   <TableCell align="right">{row.users}</TableCell>
-                  <TableCell align="right">{row.actions}</TableCell>
+                  {/* <TableCell align="right">{row.actions}</TableCell>
                   <TableCell align="right">{row.actionsPerVisit}</TableCell>
-                  <TableCell align="right">{row.avgTime}</TableCell>
+                  <TableCell align="right">{row.avgTime}</TableCell> */}
                 </TableRow>
               ))}
             </TableBody>

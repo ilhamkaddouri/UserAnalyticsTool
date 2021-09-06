@@ -11,14 +11,14 @@ import ReorderIcon from '@material-ui/icons/Reorder';
 export const sidebarData = [
     {
         title: 'Dashboard.title',
-        path: '/',
+        path: '/dashboard',
         icon: <DashboardIcon fontSize="small"/>,
         iconClosed: <ExpandMoreIcon fontSize="small"/>,
         iconOpened: <ExpandLessIcon fontSize="small"/> ,
         subMenu: [
             {
                 title: 'Dashboard.title',
-                path: '/',
+                path: '/dashboard',
             }
         ]
     },
@@ -73,31 +73,31 @@ export const sidebarData = [
         subMenu: [
             {
                 title: 'Behavior.pages',
-                path: '',
+                path: '/pages',
             },
             {
                 title: 'Behavior.entryPages',
-                path: '',
+                path: '/entryPages',
             },
             {
                 title: 'Behavior.exitPages',
-                path: '',
+                path: '/exitPages',
             },
             {
                 title: 'Behavior.pageTitles',
-                path: '',
+                path: '/pageTitles',
             },
             {
                 title: 'Behavior.downloads',
-                path: '',
+                path: '/downloads',
             },
             {
                 title: 'Behavior.siteSearch',
-                path: '',
+                path: '/siteSearch',
             },
             {
                 title: 'Behavior.performance',
-                path: '',
+                path: '/performance',
             },
 
         ]
@@ -111,11 +111,11 @@ export const sidebarData = [
         subMenu: [
             {
                 title: 'Insights.visitsPerTime',
-                path: '',
+                path: '/insights/perTime',
             },
             {
                 title: 'Insights.usersLocation',
-                path: '',
+                path: '/insights/perLocation',
             },
         ]
     },
@@ -128,7 +128,7 @@ export const sidebarData = [
         subMenu: [
             {
                 title: 'HeatMaps.mange',
-                path: '',
+                path: '/manageHeatMaps',
             },
         ]
     },
@@ -141,15 +141,15 @@ export const sidebarData = [
         subMenu: [
             {
                 title: 'Goals.overview',
-                path: '',
+                path: '/goals/overview',
             },
             {
                 title: 'Goals.contractUsage',
-                path: '',
+                path: '/goals/contractUsage',
             },
             {
                 title: 'Goals.manage',
-                path: '',
+                path: '/goals/manageGoals',
             },
 
         ]
@@ -184,7 +184,7 @@ export const sidebarData = [
         subMenu: [
             {
                 title: 'Users.manage',
-                path: '',
+                path: '/manageUsers',
             },
         ]
     },

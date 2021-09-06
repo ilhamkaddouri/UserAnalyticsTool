@@ -15,8 +15,9 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import LockIcon from '@material-ui/icons/Lock';
 import {Link} from 'react-router-dom'
-
+import {signIn} from '../../../services/authService'
 import clsx from 'clsx';
+import { useHistory } from 'react-router-dom';
 
 import { Header } from '../Header/Header'
 import '../Login/login.scss'
@@ -25,6 +26,10 @@ interface RegisterProps {
 
 }
 interface State {
+    firstName: string;
+    lastName: string;
+    username: string;
+    email: string;
     password: string;
     showPassword: boolean;
 }
@@ -52,7 +57,12 @@ const useStyles = makeStyles((theme: Theme) =>
 export const Register: React.FC<RegisterProps> = ({ }) => {
     const { t } = useTranslation();
     const classes = useStyles();
+    const history = useHistory();
     const [values, setValues] = React.useState<State>({
+        firstName:'',
+        lastName:'',
+        email:'',
+        username:'',
         password: '',
         showPassword: false,
     });
@@ -75,6 +85,21 @@ export const Register: React.FC<RegisterProps> = ({ }) => {
     const handleChangeCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
         setcheckBox({ ...checkBox, [event.target.name]: event.target.checked });
     }
+
+    const SignIn = async ()=>{
+        const firstName = values.firstName
+        const lastName = values.lastName
+        const username = values.username
+        const email = values.email
+        const password = values.password
+        const user  = {firstName, lastName, username, email, password}
+        console.log(user)
+        const result = await signIn(user)
+        console.log(result)
+        setTimeout(() => {}, 2000);
+        history.push('/')
+    }
+
     return (
         <div className="login__container">
             <Header />
@@ -92,28 +117,32 @@ export const Register: React.FC<RegisterProps> = ({ }) => {
                     <InputLabel className='login__input' htmlFor="standard-adornment-password"> First Name </InputLabel>
                     <Input id="standard-adornment"
                         type='text'
-                        value={values.password}
+                        value={values.firstName}
+                        onChange={handleChange('firstName')}
                     />
                 </FormControl>
                 <FormControl className={clsx(classes.margin, classes.textField)}>
                     <InputLabel className='login__input' htmlFor="standard-adornment-password"> Last Name</InputLabel>
                     <Input id="standard-adornment-password"
                         type='text'
-                        value={values.password}
+                        value={values.lastName}
+                        onChange={handleChange('lastName')}
                     />
                 </FormControl>
                 <FormControl className={clsx(classes.margin, classes.textField)}>
                     <InputLabel className='login__input' htmlFor="standard-adornment-password"> Username </InputLabel>
                     <Input id="standard-adornment-password"
                         type='text'
-                        value={values.password}
+                        value={values.username}
+                        onChange={handleChange('username')}
                     />
                 </FormControl>
                 <FormControl className={clsx(classes.margin, classes.textField)}>
                     <InputLabel className='login__input' htmlFor="standard-adornment-password"> Email</InputLabel>
                     <Input id="standard-adornment-password"
                         type='text'
-                        value={values.password}
+                        value={values.email}
+                        onChange={handleChange('email')}
                     />
                 </FormControl>
                 <FormControl className={clsx(classes.margin, classes.textField)}>
@@ -144,7 +173,7 @@ export const Register: React.FC<RegisterProps> = ({ }) => {
                             style={{ color: '#9e9e9e' }}
                         />
                     </FormGroup>
-                    <Button variant="contained" className="login__button">Sign Up</Button>
+                    <Button variant="contained" className="login__button" onClick={SignIn}>Sign Up</Button>
                 </div>
                 <div className="login__forget__password">
                     <span className="login__forget__password__span"><Link to='/'>Already have an Account? Sign In</Link></span>

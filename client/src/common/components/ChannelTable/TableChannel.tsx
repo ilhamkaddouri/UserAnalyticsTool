@@ -229,7 +229,7 @@ const useStyles = makeStyles((theme: Theme) =>
             marginBottom: theme.spacing(2),
         },
         table: {
-            maxWidth: 750,
+            width:'70%'
         },
         visuallyHidden: {
             border: 0,
