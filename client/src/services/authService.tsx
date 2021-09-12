@@ -1,10 +1,19 @@
 import axios, {AxiosResponse} from "axios";
 import { User } from "../models/User";
-import {USERS_API_URL} from '../common/constant/env'
+import {AUTH_API_URL} from '../common/constant/env'
 
-export function getUsers(): Promise<AxiosResponse<any>> {
-        return axios.get(`${USERS_API_URL}`);
-    }
+
+export function verifyToken(token: string){
+    return axios.post(`${AUTH_API_URL}/verifytoken`,null,{
+        headers: { "auth-token": token },
+      });
+}
+
+export function getVerify(token: string){
+    return axios.get(`${AUTH_API_URL}/`,{
+        headers: { "auth-token": token },
+      });
+}
 
 export function logIn(user: User): Promise<AxiosResponse<any>> {
     
@@ -12,7 +21,7 @@ export function logIn(user: User): Promise<AxiosResponse<any>> {
         email: user.email,
         password: user.password
     }
-    return axios.post(`${USERS_API_URL}/login`, loginUser);
+    return axios.post(`${AUTH_API_URL}/login`, loginUser);
 }   
 
 export function signIn(user: User): Promise<AxiosResponse<any>> {
@@ -25,12 +34,5 @@ export function signIn(user: User): Promise<AxiosResponse<any>> {
         password: user.password,
 
     }
-    return axios.post(`${USERS_API_URL}/register`, loginUser);
+    return axios.post(`${AUTH_API_URL}/register`, loginUser);
 }   
-
-export function updateUser(user: User) : Promise<AxiosResponse<any>> {
-    const id = user._id;
-    const newuser= {...user};
-    newuser._id = undefined;
-    return axios.put(`${USERS_API_URL}/${id}`, newuser);
-}

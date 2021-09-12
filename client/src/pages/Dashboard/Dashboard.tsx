@@ -99,7 +99,9 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
                     <span className='dashboard__element__title'>{t('Dashboard.visits')}</span>
                     <div className='dashboard__item chart__item'>
                     <VisitsChart data={data}/>
+                    <span className='info'>2788 visits</span>
                     </div>
+                    
                 </div>
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visitsInrealTime')}</span>

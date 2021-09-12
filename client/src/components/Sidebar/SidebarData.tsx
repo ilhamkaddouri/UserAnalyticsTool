@@ -184,7 +184,7 @@ export const sidebarData = [
         subMenu: [
             {
                 title: 'Users.manage',
-                path: '/manageUsers',
+                path: '/addUser',
             },
         ]
     },

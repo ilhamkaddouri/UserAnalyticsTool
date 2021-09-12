@@ -11,6 +11,7 @@ import {Insights} from '../pages/Insights/Insights'
 import {HeatMaps} from '../pages/HeatMaps/HeatMaps'
 import {Goals} from '../pages/Goals/Goals'
 import {Users} from '../pages/Users/Users'
+import {AddUser} from '../pages/Users/AddUser'
 
 interface indexProps {
 
@@ -38,6 +39,7 @@ export const Router: React.FC<indexProps> = ({}) => {
             <Route component={Goals} path="/goals" exact/>
 
             <Route component={Users} path="/users" exact/>
+            <Route component={AddUser} path="/addUser" exact/>
 
         </>
     );

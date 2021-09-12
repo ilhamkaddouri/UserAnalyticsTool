@@ -1,4 +1,5 @@
-import React, { useState, useContext } from 'react'
+import React, {useState, useContext} from 'react'
+import UserContext from "../../context/UserContext"
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -13,23 +14,21 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { useTranslation } from 'react-i18next'
 import Checkbox from '@material-ui/core/Checkbox';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import PersonIcon from '@material-ui/icons/Person';
 import LockIcon from '@material-ui/icons/Lock';
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import {SuccessNotice} from '../../common/Errors/SuccessNotice'
 import clsx from 'clsx';
 import { useHistory } from 'react-router-dom';
-import { logIn } from '../../../services/authService'
-import { User } from '../../../models/User'
-import { Header } from '../Header/Header'
-import './login.scss'
-import { ErrorNotice } from '../../../common/Errors/ErrorNotice'
-import { SuccessNotice } from '../../../common/Errors/SuccessNotice'
-import UserContext from '../../../context/UserContext'
-interface LoginProps {
+import {createUser} from '../../services/userService'
+interface AddUserProps {
 
 }
+
 interface State {
-    email: string,
+    firstName: string;
+    lastName: string;
+    username: string;
+    email: string;
     password: string;
     showPassword: boolean;
 }
@@ -54,19 +53,20 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const Login: React.FC<LoginProps> = ({ }) => {
-    const { t } = useTranslation();
-    const history = useHistory();
-    const classes = useStyles();
-    const {setUserData} = useContext(UserContext)
-    const [error, setError] = useState<string>();
+export const AddUserComp: React.FC<AddUserProps> = ({ }) => {
 
-    /** Successful registration of account */
+    const userData = useContext(UserContext);
+
     const [success, setSuccess] = useState<string>();
-
-
+    const { t } = useTranslation();
+    const classes = useStyles();
+    const history = useHistory();
+    const [error, setError] = useState<string>();
     const [values, setValues] = React.useState<State>({
-        email: '',
+        firstName:'',
+        lastName:'',
+        email:'',
+        username:'',
         password: '',
         showPassword: false,
     });
@@ -90,56 +90,67 @@ export const Login: React.FC<LoginProps> = ({ }) => {
         setcheckBox({ ...checkBox, [event.target.name]: event.target.checked });
     }
 
-    const signIn = async () => {
+    const addUser = async ()=>{
+        const firstName = values.firstName
+        const lastName = values.lastName
+        const username = values.username
         const email = values.email
         const password = values.password
-        const user = { email, password }
-        try {
-            const loginUser = await logIn(user)
-            if (loginUser.data.token) {
-                setSuccess("Account created successfully. Welcome aboard !");
-                setUserData({
-                    token: loginUser.data.token,
-                    user: loginUser.data.user.id,
-                  });
+        const user  = {firstName, lastName, username, email, password}
+        try{
+            console.log(user)
+            const token = userData.userData.token;
+            if (token == undefined) {
+                setError("You must be logged in to post a question.");
+                setTimeout(() => {}, 2500);
+              }
+            const result = await createUser(user, token)
+            console.log(result)
+            setTimeout(() => {}, 2000);
+            if (result.data.user_id) {
+                setSuccess("Account created successfully !");
             }
-            setTimeout(() => { }, 2000);
-            localStorage.setItem("auth-token", loginUser.data.token);
-            history.push('/dashboard')
-
-        } catch (error) {
+        }catch(error){
             error.response.data.msg && setError(error.response.data.msg);
         }
     }
 
+
     return (
-        <div className="login__container">
-            <Header />
-            <form className="login__form" autoComplete="off">
-                {/* <TextField id="standard-basic" label={t('Login.password')} style={{ color: '#9e9e9e' }} className='login__input' /> */}
-                <div className="login__label">
-                    <span>Sign In</span>
-                </div>
-                {/* <TextField
-                    label="Username or Email"
-                    id="standard-start-adornment"
-                    className={clsx(classes.margin, classes.textField)}
-                /> */}
-                {success && (
+        <div>
+             {success && (
                     <SuccessNotice
                         message={success}
                     //clearError={() => setSuccess(undefined)}
                     />
                 )}
-
-                {error && (
-                    <ErrorNotice
-                        message={error}
-                    //clearError={() => setError(undefined)}
-                    />
-                )}
+            <form autoComplete="off">
                 <FormControl className={clsx(classes.margin, classes.textField)}>
-                    <InputLabel className='login__input' htmlFor="standard-adornment-password"><PersonIcon fontSize='inherit' /> Username or Email</InputLabel>
+                    <InputLabel className='login__input' htmlFor="standard-adornment-password"> First Name </InputLabel>
+                    <Input id="standard-adornment"
+                        type='text'
+                        value={values.firstName}
+                        onChange={handleChange('firstName')}
+                    />
+                </FormControl>
+                <FormControl className={clsx(classes.margin, classes.textField)}>
+                    <InputLabel className='login__input' htmlFor="standard-adornment-password"> Last Name</InputLabel>
+                    <Input id="standard-adornment-password"
+                        type='text'
+                        value={values.lastName}
+                        onChange={handleChange('lastName')}
+                    />
+                </FormControl>
+                <FormControl className={clsx(classes.margin, classes.textField)}>
+                    <InputLabel className='login__input' htmlFor="standard-adornment-password"> Username </InputLabel>
+                    <Input id="standard-adornment-password"
+                        type='text'
+                        value={values.username}
+                        onChange={handleChange('username')}
+                    />
+                </FormControl>
+                <FormControl className={clsx(classes.margin, classes.textField)}>
+                    <InputLabel className='login__input' htmlFor="standard-adornment-password"> Email</InputLabel>
                     <Input id="standard-adornment-password"
                         type='text'
                         value={values.email}
@@ -167,18 +178,7 @@ export const Login: React.FC<LoginProps> = ({ }) => {
                     />
                 </FormControl>
                 <div className="login__actions">
-                    <FormGroup row>
-                        <FormControlLabel
-                            control={<Checkbox checked={checkBox.checkedA} onChange={handleChangeCheckbox} name="checkedA" />}
-                            label="Remember Me"
-                            style={{ color: '#9e9e9e' }}
-                        />
-                    </FormGroup>
-                    <Button variant="contained" className="login__button" onClick={signIn}>Sign In</Button>
-                </div>
-                <div className="login__forget__password">
-                    <span className="login__forget__password__span"><a href=''>Forgot your password?</a></span>
-                    <span className="login__forget__password__span"><Link to='/register'>Sign Up</Link></span>
+                    <Button variant="contained" className="login__button" onClick={addUser}>Create an account</Button>
                 </div>
             </form>
         </div>

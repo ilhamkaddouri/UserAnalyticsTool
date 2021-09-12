@@ -20,6 +20,8 @@ import clsx from 'clsx';
 import { useHistory } from 'react-router-dom';
 
 import { Header } from '../Header/Header'
+
+import { ErrorNotice } from '../../../common/Errors/ErrorNotice'
 import '../Login/login.scss'
 
 interface RegisterProps {
@@ -58,6 +60,7 @@ export const Register: React.FC<RegisterProps> = ({ }) => {
     const { t } = useTranslation();
     const classes = useStyles();
     const history = useHistory();
+    const [error, setError] = useState<string>();
     const [values, setValues] = React.useState<State>({
         firstName:'',
         lastName:'',
@@ -93,11 +96,13 @@ export const Register: React.FC<RegisterProps> = ({ }) => {
         const email = values.email
         const password = values.password
         const user  = {firstName, lastName, username, email, password}
-        console.log(user)
-        const result = await signIn(user)
-        console.log(result)
-        setTimeout(() => {}, 2000);
-        history.push('/')
+        try{
+            const result = await signIn(user)
+            setTimeout(() => {}, 2000);
+            history.push('/')
+        }catch(error){
+            error.response.data.msg && setError(error.response.data.msg);
+        }
     }
 
     return (
@@ -113,6 +118,12 @@ export const Register: React.FC<RegisterProps> = ({ }) => {
                     id="standard-start-adornment"
                     className={clsx(classes.margin, classes.textField)}
                 /> */}
+                {error && (
+                    <ErrorNotice
+                        message={error}
+                    //clearError={() => setError(undefined)}
+                    />
+                )}
                 <FormControl className={clsx(classes.margin, classes.textField)}>
                     <InputLabel className='login__input' htmlFor="standard-adornment-password"> First Name </InputLabel>
                     <Input id="standard-adornment"
