@@ -6,6 +6,9 @@ import InfoIcon from '@material-ui/icons/Info';
 import LanguageIcon from '@material-ui/icons/Language';
 import {useTranslation} from 'react-i18next'
 import {DropDownLanguage} from './DropDownLanguage'
+import FormatAlignJustifyIcon from '@material-ui/icons/FormatAlignJustify';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import IconButton from '@material-ui/core/IconButton';
 import './toolbar.scss'
 import { Link } from 'react-router-dom';
 interface ToolbarProps {
@@ -20,6 +23,11 @@ export const Toolbar: React.FC<ToolbarProps> = ({}) => {
     return (
         <div className='header'>
             <div className='header__container'>
+                <div className='formatalign'>
+                    <IconButton>
+                        <FormatAlignJustifyIcon fontSize='large'  style={{color: 'black'}}/>
+                    </IconButton>
+                </div>
                 <div className='header__left'>
                     <img className='header__logo' src={logo} alt='OpusCapita'/>
                 </div>
@@ -44,6 +52,11 @@ export const Toolbar: React.FC<ToolbarProps> = ({}) => {
                             <AccountCircle color='action'/>
                         </button>
                     </div>
+                </div>
+                <div className='morevert'>
+                    <IconButton>
+                        <MoreVertIcon fontSize='large' style={{color: 'black'}}/>
+                    </IconButton>
                 </div>
             </div>
         </div>

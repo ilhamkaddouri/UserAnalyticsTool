@@ -94,7 +94,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
     const { t } = useTranslation()
     return (
         <div className="dashboard__container">
-            <div>
+            <div className="container__box">
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visits')}</span>
                     <div className='dashboard__item chart__item'>
@@ -110,7 +110,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className="container__box">
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visitsOverTime')}</span>
                     <div className='dashboard__item'>
@@ -131,7 +131,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className="container__box">
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visitorMap')}</span>
                     <div className='dashboard__item'>
@@ -141,7 +141,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.channelTypes')}</span>
                     <div className='dashboard__item'>
-                        <ChannelTable/>
+                        {/* <ChannelTable/> */}
                     </div>
                 </div>
             </div>

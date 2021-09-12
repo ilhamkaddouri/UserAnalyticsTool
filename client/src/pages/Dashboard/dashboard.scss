@@ -1,14 +1,14 @@
 .dashboard__container{
     display: flex;
     justify-content: space-between;
-    
+    height: 100vh;
 }
 
-.dashboard__container div{
-    flex: 1;
-    justify-content: center;
-    align-items: center
-}
+// .dashboard__container div{
+//     flex: 1;
+//     justify-content: center;
+//     align-items: center
+// }
 .dashboard__element__container{
     margin: 15px;
     padding:  20px 0;
@@ -42,3 +42,35 @@
     color: green;
     padding: 5px;
 }
+
+.container__box{
+    width: 33.33%;
+}
+
+@media only screen and (max-width: 1000px) {
+    .dashboard__container{
+        width: 100vw;
+    }
+  }
+
+@media only screen and (max-width: 870px) {
+    .dashboard__container{
+        display: flex;
+        justify-content: space-around;
+        width: 100vw;
+    }
+    .dashboard__element__container{
+        margin: 8px;
+    }
+  }
+
+@media only screen and (max-width: 600px) {
+    .dashboard__container{
+        display: initial;
+        width: 100vw;
+    }
+    .container__box{
+        width: 100%;
+    }
+  }  
+  
