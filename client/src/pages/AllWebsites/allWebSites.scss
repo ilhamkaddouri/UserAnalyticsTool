@@ -1,7 +1,7 @@
 .page__container{
     background-color: rgb(224, 224, 224);
-    height: auto;
-    width: auto;
+    height: 100vh;
+    width: 100vw;
 }
 
 .page__data{
@@ -24,7 +24,16 @@
 }
 
 .search{
-    margin: auto;
     width: 70%;
+    margin: auto;
     padding: 10px 0;
 }
+
+@media only screen and (max-width: 768px) {
+    .search{
+
+    }
+    .page__data{
+        width: 90%;
+    }
+} 

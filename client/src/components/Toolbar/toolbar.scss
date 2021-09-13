@@ -74,26 +74,52 @@
 
 .morevert{
     display: none;
+    cursor: pointer;
 }
 .formatalign{
     display: none;
+    cursor: pointer;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 768px) {
   .header__logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-  }
-  .header__right {
-    display: none;
+    width: 65%;
   }
   .morevert{
-      display: initial;
+      display: block;
+  }
+  .header__right{
+    display: none;
   }
   .formatalign{
-      display: initial;
+      display: block;
+  }
+  #hidden{
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    right: 0vh;
+    height: 100vh;
+    width: 50%;
+    top: 58px;
+    background-color: #9e3838;
+    justify-content: normal;
+    transition: transform 0.8s ease-in-out;
+  }
+  #link{
+    flex-direction: column;
+    justify-content: space-around;
+  }
+   #icon{
+    display: flex;
+    flex-direction: column;
+    left: 0;
+  }
+  .page__link{
+    padding: 15px;
   }
 }
 

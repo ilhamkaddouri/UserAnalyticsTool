@@ -17,6 +17,7 @@ interface ToolbarProps {
 
 export const Toolbar: React.FC<ToolbarProps> = ({}) => {
     const [openLanguage, setOpenLanguage] = useState<Boolean>(false);
+    const [showToggle, setShowToggle] = useState<Boolean>(false);
     const showLanguage = ()=> setOpenLanguage(!openLanguage)
     const { t } = useTranslation()
 
@@ -31,13 +32,13 @@ export const Toolbar: React.FC<ToolbarProps> = ({}) => {
                 <div className='header__left'>
                     <img className='header__logo' src={logo} alt='OpusCapita'/>
                 </div>
-                <div className='header__right'>
-                    <div className='header__links'>
+                <div className='header__right' id={showToggle ? "hidden" : ""}>
+                    <div className='header__links' id={showToggle ? "link" : ""}>
                         <Link className='page__link' to='/dashboard'>{t('Header.dashboard')}</Link>
                         <Link className='page__link' to='/allwebsites'>{t('Header.website')}</Link>
                         <Link className='page__link' to='/taskManagers'>{t('Header.manager')}</Link>
                     </div>
-                    <div className='header__icons'>
+                    <div className='header__icons' id={showToggle ? "icon" : ""}>
                         <button className='header__button'>
                             <InfoIcon color='action'/>
                         </button>
@@ -55,7 +56,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({}) => {
                 </div>
                 <div className='morevert'>
                     <IconButton>
-                        <MoreVertIcon fontSize='large' style={{color: 'black'}}/>
+                        <MoreVertIcon fontSize='large' style={{color: 'black'}} onClick={()=> setShowToggle(!showToggle)}/>
                     </IconButton>
                 </div>
             </div>

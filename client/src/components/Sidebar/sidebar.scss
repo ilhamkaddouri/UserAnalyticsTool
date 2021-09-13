@@ -9,6 +9,12 @@
     .sidebar {
         flex: 1;
         display: none;
+        transition: opacity 1s ease-out;
+        opacity: 0;
+    }
+    .sidebar.active {
+        opacity: 1;
+        display: block;
     }
   }
   
