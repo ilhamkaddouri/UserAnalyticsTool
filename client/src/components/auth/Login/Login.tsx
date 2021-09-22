@@ -108,7 +108,7 @@ export const Login: React.FC<LoginProps> = ({ }) => {
             history.push('/dashboard')
 
         } catch (error) {
-            error.response.data.msg && setError(error.response.data.msg);
+            setError('Cannot log in');
         }
     }
 

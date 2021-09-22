@@ -5,11 +5,14 @@ import {Visitors} from '../pages/Visitors/Visitors';
 import {RealTimeMap} from '../pages/Visitors/RealTimeMap'
 import {VisitsLogs} from '../pages/Visitors/VisitsLogs'
 import {Locations} from '../pages/Visitors/Locations'
+import {VisitsTime} from '../pages/Visitors/VisitsTime'
+
 
 import {Behavior} from '../pages/Behavior/Behavior'
 import {Insights} from '../pages/Insights/Insights'
 import {HeatMaps} from '../pages/HeatMaps/HeatMaps'
 import {Goals} from '../pages/Goals/Goals'
+
 import {Users} from '../pages/Users/Users'
 import {AddUser} from '../pages/Users/AddUser'
 
@@ -27,6 +30,7 @@ export const Router: React.FC<indexProps> = ({}) => {
             <Route component={RealTimeMap} path="/visitors/realtimeMap" exact />
             <Route component={VisitsLogs} path="/visitors/visitsLog" exact />
             <Route component={Locations} path="/visitors/locations" exact />
+            <Route component={VisitsTime} path="/visitors/times" exact />
 
             <Route component={Behavior} path="/behavior" exact/>
 
