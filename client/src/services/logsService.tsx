@@ -17,6 +17,14 @@ export function getVisitsDate(){
     return axios.get(`${LOGS_API_URL}/date`)
 }
 
+export function getVisitsRoute(){
+    return axios.get(`${LOGS_API_URL}/route`)
+}
+
+export function getVisitsPerTime(){
+    return axios.get(`${LOGS_API_URL}/time`)
+}
+
 export function getVerify(token: string){
     return axios.get(`${LOGS_API_URL}/`,{
         headers: { "auth-token": token },

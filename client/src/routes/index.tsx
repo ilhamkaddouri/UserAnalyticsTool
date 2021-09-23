@@ -9,6 +9,9 @@ import {VisitsTime} from '../pages/Visitors/VisitsTime'
 
 
 import {Behavior} from '../pages/Behavior/Behavior'
+import { Pages } from '../pages/Behavior/Pages'
+import { EntryPages } from '../pages/Behavior/EntryPages'
+
 import {Insights} from '../pages/Insights/Insights'
 import {HeatMaps} from '../pages/HeatMaps/HeatMaps'
 import {Goals} from '../pages/Goals/Goals'
@@ -33,6 +36,8 @@ export const Router: React.FC<indexProps> = ({}) => {
             <Route component={VisitsTime} path="/visitors/times" exact />
 
             <Route component={Behavior} path="/behavior" exact/>
+            <Route component={Pages} path="/pages" exact/>
+            <Route component={EntryPages} path="/entryPages" exact/>
 
             <Route component={Insights} path="/insights" exact/>
 

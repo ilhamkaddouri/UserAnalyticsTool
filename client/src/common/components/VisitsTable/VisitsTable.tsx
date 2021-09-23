@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -13,6 +13,7 @@ import { IconButton } from '@material-ui/core';
 import {Link} from 'react-router-dom'
 import './visitsTabls.scss'
 import { Visit } from '../../components/Visit/Visit'
+import {getVisitsPerTime} from '../../../services/logsService'
 const useStyles = makeStyles({
     table: {
         width: '100%'
@@ -28,11 +29,6 @@ function createData(name: string, action: number, visit: number) {
     return { name, action, visit };
 }
 
-const rows = [
-    createData('Last 24 hours', 159, 6),
-    createData('Last 12 hours', 237, 9),
-    createData('Last 30 minutes', 262, 16),
-];
 
 const item = {
     code: 'fi'
@@ -43,6 +39,27 @@ interface VisitsTableProps {
 
 export const VisitsTable: React.FC<VisitsTableProps> = ({ }) => {
     const classes = useStyles();
+    const [visitsTimePastHour, setVisitsTimePastHour]= useState([]);
+    const [visitsTimePastHalfDay, setVisitsTimePastHalfDay]= useState([]);
+    const [visitsTimePastDay, setVisitsTimePastDay]= useState([]);
+    const [total, setTotal] = useState<number>(0)
+    useEffect(()=>{
+        const getData = async ()=>{
+            const result = await getVisitsPerTime();
+            if(result && result.data){
+                await setVisitsTimePastHour(result.data.visitsLastPastHour);
+                await setTotal(visitsTimePastHour.length);
+                setVisitsTimePastHalfDay(result.data.visitsLastPastDay)
+                setVisitsTimePastDay(result.data.visitsLastDay)
+            }
+        }
+        getData()
+    }, [total])
+    let rows = [
+        createData('Last 24 hours', total, 6),
+        createData('Last 12 hours', 1, 9),
+        createData('Last 30 minutes', 4, 16),
+    ];
     return (
         <>
         <TableContainer component={Paper}>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState, useEffect } from 'react'
 import { VisitsChart } from '../../common/components/Visits/VisitsChart'
 import {useTranslation} from 'react-i18next'
 import { IconButton } from '@material-ui/core';
@@ -6,6 +6,7 @@ import DateRangeIcon from '@material-ui/icons/DateRange';
 import ImageIcon from '@material-ui/icons/Image';
 import MessageIcon from '@material-ui/icons/Message';
 import ArchiveIcon from '@material-ui/icons/Archive';
+import {getVisitsDate} from '../../services/logsService'
 import './Visitors.scss'
 import '../../styles/styles.scss'
 interface VisitorsProps {
@@ -65,11 +66,23 @@ const data = [
 
 export const Visitors: React.FC<VisitorsProps> = ({}) => {
         const { t } = useTranslation()
+        const [visitsMonth, setVisitsMonth] = useState([])
+
+        useEffect(()=>{
+       
+            async function getUserVisits() {
+                let response = await getVisitsDate();
+                if (response.data) {
+                    setVisitsMonth(response.data.requestsPerMonth);
+                }
+            }
+            getUserVisits()
+        },[])
         return (
             <div className="page__container">
                 <div className="element__container">
                     <span className='visitors__element__title'>{t('Visitors.vistisOverTime')}</span>
-                    <VisitsChart data={data}/>
+                    <VisitsChart data={visitsMonth}/>
                     <div>
                     <div className='graph__options'>
                         <IconButton>

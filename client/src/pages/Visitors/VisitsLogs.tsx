@@ -69,8 +69,8 @@ export const VisitsLogs: React.FC<VisitsLogsProps> = ({}) => {
                 <div>
                 {visits && visits.map((visit: visit)=>(
                     <div className='visit'>
-                        <span><b>{visit.day}, {visit.month}, {visit.year} - {visit.time}</b></span>
-                        <span>{visit.date}</span>
+                        <span><b>{visit.day}, {visit.month}, {visit.hour},{visit.year} - {visit.time}</b></span>
+                        {/* <span>{visit.date}</span> */}
                         <p>IP: {visit.ip}</p>
                         <p>URL: {visit.url}</p>
                         <p>Browser: {visit.browser}</p>

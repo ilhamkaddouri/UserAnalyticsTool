@@ -38,6 +38,10 @@ export const sidebarData = [
                 path: '/visitors/visitsLog'
             },
             {
+                title: 'Visitors.times',
+                path: '/visitors/times'
+            },
+            {
                 title: 'Visitors.realtime',
                 path: '/visitors/realtime'
             },
@@ -56,10 +60,6 @@ export const sidebarData = [
             {
                 title: 'Visitors.software',
                 path: '/visitors/software'
-            },
-            {
-                title: 'Visitors.times',
-                path: '/visitors/times'
             },
 
         ]

@@ -5,6 +5,10 @@ import {useTranslation} from 'react-i18next'
 import './Visitors.scss'
 import '../Dashboard/dashboard.scss'
 import {getVisitsDate} from '../../services/logsService'
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import TodayIcon from '@material-ui/icons/Today';
+import DateRangeIcon from '@material-ui/icons/DateRange';
+import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
 interface VisitsLogsProps {
 
 }
@@ -50,8 +54,8 @@ export const VisitsTime: React.FC<VisitsLogsProps> = ({}) => {
                     {
                         visitsHour && visitsHour.map((visitHour: visit)=>(
                             <div className='visit'>
-                                <p>Hour : {visitHour._id}</p>
-                                <p>numberOfRequests : {visitHour.numberOfRequests}</p>
+                                <p> <AccessTimeIcon fontSize='inherit'/><b> Hour :</b> {visitHour._id}</p>
+                                <p> numberOfRequests : {visitHour.numberOfRequests}</p>
                             </div>
                         ))
                     }
@@ -68,7 +72,7 @@ export const VisitsTime: React.FC<VisitsLogsProps> = ({}) => {
                     {
                         visitsHour && visitsDay.map((visitHour: visit)=>(
                             <div className='visit'>
-                                <p>Day : {visitHour._id}</p>
+                                <p><TodayIcon fontSize='inherit'/> <b>Day : </b>{visitHour._id}</p>
                                 <p>numberOfRequests : {visitHour.numberOfRequests}</p>
                             </div>
                         ))
@@ -83,7 +87,7 @@ export const VisitsTime: React.FC<VisitsLogsProps> = ({}) => {
                     {
                         visitsHour && visitsMonth.map((visitHour: visit)=>(
                             <div className='visit'>
-                                <p>Month : {visitHour._id}</p>
+                                <p><DateRangeIcon fontSize='inherit'/> <b>Month : </b>{visitHour._id}</p>
                                 <p>numberOfRequests : {visitHour.numberOfRequests}</p>
                             </div>
                         ))
@@ -96,7 +100,7 @@ export const VisitsTime: React.FC<VisitsLogsProps> = ({}) => {
                     {
                         visitsHour && visitsYear.map((visitHour: visit)=>(
                             <div className='visit'>
-                                <p>Year : {visitHour._id}</p>
+                                <p><CalendarViewDayIcon fontSize='inherit'/><b>Year : </b>{visitHour._id}</p>
                                 <p>numberOfRequests : {visitHour.numberOfRequests}</p>
                             </div>
                         ))

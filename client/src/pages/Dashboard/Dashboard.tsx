@@ -1,10 +1,11 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import './dashboard.scss'
 import {VisitsChart} from '../../common/components/Visits/VisitsChart'
 import {VisitsTable} from '../../common/components/VisitsTable/VisitsTable'
 import {useTranslation} from 'react-i18next'
 import { WorldMapChart } from '../../common/components/Map/WorldMapChart'
 import { TableChannel } from '../../common/components/ChannelTable/TableChannel'
+import {getVisitsDate} from '../../services/logsService'
 import { ChannelTable } from '../../common/components/ChannelTable/ChannelTable'
 const data = [
     {
@@ -92,13 +93,27 @@ interface DashboardProps {
 
 export const Dashboard: React.FC<DashboardProps> = ({ }) => {
     const { t } = useTranslation()
+    const [visitsMonth, setVisitsMonth] = useState([])
+    const [visitsDay, setVisitsDay] = useState([])
+
+        useEffect(()=>{
+       
+            async function getUserVisits() {
+                let response = await getVisitsDate();
+                if (response.data) {
+                    setVisitsMonth(response.data.requestsPerMonth);
+                    setVisitsDay(response.data.requestsPerDay);
+                }
+            }
+            getUserVisits()
+        },[])
     return (
         <div className="dashboard__container">
             <div className="container__box">
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visits')}</span>
                     <div className='dashboard__item chart__item'>
-                    <VisitsChart data={data}/>
+                    <VisitsChart data={visitsMonth}/>
                     <span className='info'>2788 visits</span>
                     </div>
                     
@@ -114,7 +129,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visitsOverTime')}</span>
                     <div className='dashboard__item'>
-                        <VisitsChart data={days}/>
+                        <VisitsChart data={visitsDay}/>
                     </div>
                 </div>
                 <div className='dashboard__element__container'>
