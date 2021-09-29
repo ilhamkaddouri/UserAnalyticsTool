@@ -92,8 +92,8 @@ export const UsersTable: React.FC<UsersTableProps> = ({ }) => {
 
     useEffect(() => {
         async function getAllUsers() {
-            const token = userData.userData.token;
-            if (token == undefined) {
+            const token = window.localStorage.getItem('auth-token') || '';
+            if (token === undefined) {
                 setError("You must be logged first.");
                 setTimeout(() => {}, 2500);
               }
@@ -113,7 +113,7 @@ export const UsersTable: React.FC<UsersTableProps> = ({ }) => {
 
     const deltUser = async (id: String) => {
         try {
-            const token = userData.userData.token;
+            const token = window.localStorage.getItem('auth-token') || '';
             if (token == undefined) {
                 setError("You must be logged first.");
                 setTimeout(() => {}, 2500);
@@ -131,7 +131,7 @@ export const UsersTable: React.FC<UsersTableProps> = ({ }) => {
 
     const doBanUser = async (id: string) => {
         try{
-            const token = userData.userData.token;
+            const token = window.localStorage.getItem('auth-token') || '';
             if (token == undefined) {
                 setError("You must be logged first.");
                 setTimeout(() => {}, 2500);

@@ -7,6 +7,7 @@ import { WorldMapChart } from '../../common/components/Map/WorldMapChart'
 import { TableChannel } from '../../common/components/ChannelTable/TableChannel'
 import {getVisitsDate} from '../../services/logsService'
 import { ChannelTable } from '../../common/components/ChannelTable/ChannelTable'
+import {DataTable} from '../../common/components/Behavior/DataTable'
 const data = [
     {
         month: 'Jun',
@@ -87,6 +88,53 @@ const days = [
         visits: 4000
     },
 ]
+
+const datas = [
+    {
+      type:'1',
+      uniqueVistors: '12'
+    },
+    {
+      type:'2',
+      uniqueVistors: '24'
+    },
+    {
+        type:'3',
+        uniqueVistors: '44'
+      },
+      {
+        type:'4',
+        uniqueVistors: '12'
+      },
+      {
+        type:'5',
+        uniqueVistors: '34'
+      },
+      {
+          type:'6',
+          uniqueVistors: '78'
+        },
+        {
+            type:'7',
+            uniqueVistors: '3'
+          },
+          {
+            type:'8',
+            uniqueVistors: '123'
+          },
+          {
+              type:'9',
+              uniqueVistors: '24'
+            },
+  ];
+  
+  const tableHeaders = [{id: "type", label:'Type'}, {id:"uniqueVistors", label:'Unique Visitors'}];
+  
+  const tableBodies = [
+    `type`,
+    `uniqueVistors`,
+  ];
+
 interface DashboardProps {
 
 }
@@ -139,12 +187,12 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
                     </div>
 
                 </div>
-                <div className='dashboard__element__container'>
+                {/* <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visitsOverview')}</span>
                     <div className='dashboard__item'>
 
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className="container__box">
                 <div className='dashboard__element__container'>
@@ -156,7 +204,12 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.channelTypes')}</span>
                     <div className='dashboard__item'>
-                        {/* <ChannelTable/> */}
+                    <DataTable
+                        data={datas}
+                        tableHeaders={tableHeaders}
+                        tableBodies={tableBodies}
+                        name='channelTypes'
+                        />
                     </div>
                 </div>
             </div>
