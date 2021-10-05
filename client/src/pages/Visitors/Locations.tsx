@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import './Visitors.scss'
+import './style.scss'
 import { DataTable } from '../../common/components/Behavior/DataTable';
+import { MapChart } from '../../common/components/Map/MapChart';
+import { WorldMapChart } from '../../common/components/Map/WorldMapChart';
+import {getVisitsLocations} from '../../services/logsService'
 interface LocationsProps {
 
 }
@@ -47,11 +50,16 @@ const datas = [
           },
 ];
 
-const tableHeaders = [{id: "type", label:'Type'}, {id:"uniqueVistors", label:'Unique Visitors'}];
+const tableHeadersCities = [{id: "_id", label:'City'}, {id:"uniqueVistors", label:'Unique Visitors'}];
 
+const tableHeadersRegions = [{id: "_id", label:'Region'}, {id:"uniqueVistors", label:'Unique Visitors'}];
+
+const tableHeadersCountries = [{id: "_id", label:'Country'}, {id:"uniqueVistors", label:'Unique Visitors'}];
+
+const tableHeadersContinent = [{id: "_id", label:'Continent'}, {id:"uniqueVistors", label:'Unique Visitors'}];
 const tableBodies = [
-  `type`,
-  `unique`
+  `_id`,
+  `numberOfRequests`
 ]
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -69,26 +77,85 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const Locations: React.FC<LocationsProps> = ({ }) => {
     const classes = useStyles();
+
+    const [cities, setCities] = useState([]);
+    const [regions, setRegions] = useState([]);
+    const [countries, setCountries] = useState([]);
+    const [continents, setContinents] = useState([]);
+
+    useEffect(()=>{
+      const getData = async ()=>{
+        const datas = await getVisitsLocations();
+        console.log(datas.data.statsPerCity)
+        if(datas && datas.data){
+            setCities(datas.data.statsPerCity);
+            setRegions(datas.data.statsPerRegion);
+            setCountries(datas.data.statsPerCountry);
+            setContinents(datas.data.statsPerContinent);
+        }
+    }
+    getData()
+    },[])
+
     return (
-        <div className="page__container">
-            <Grid container spacing={3}>
-                <Grid item xs={6} className='grid'>
-                <Paper className={classes.paper}>
-                  <DataTable data={datas}
+        <div className="container">
+            <div className="flex">
+                <div className="sameRow">
+                <WorldMapChart/>
+                </div>
+                <div className="sameRow">
+                <DataTable data={countries}
+                        tableHeaders={tableHeadersCountries}
+                        tableBodies={tableBodies}
+                        name='CountryData'
+                        title='Country'
+                        />
+                </div>
+                <div className="sameRow">
+                <DataTable data={cities}
+                        tableHeaders={tableHeadersCities}
+                        tableBodies={tableBodies}
+                        name='cityData'
+                        title='City'
+                        />
+                </div>
+            </div>
+            <div className="flex">
+                <div className="sameRow">
+                <DataTable data={continents}
+                        tableHeaders={tableHeadersContinent}
+                        tableBodies={tableBodies}
+                        name='continetData'
+                        title='Continent'
+                        />
+                </div>
+                <div className="sameRow">
+                <DataTable data={regions}
+                        tableHeaders={tableHeadersRegions}
+                        tableBodies={tableBodies}
+                        name='regionData'
+                        title='Region'
+                        />
+                </div>
+            </div>
+            {/* <div className="flex">
+                <div className="sameRow">
+                <DataTable data={datas}
+                        tableHeaders={tableHeadersCities}
+                        tableBodies={tableBodies}
+                        name='cityData'
+                        title='City'
+                        />
+                </div>
+                <div className="sameRow">
+                <DataTable data={datas}
                         tableHeaders={tableHeaders}
                         tableBodies={tableBodies}
-                        name='channelTypes' />
-                </Paper>
-                </Grid>
-                <Grid item xs={6}>
-                <Paper className={classes.paper}>
-                  <DataTable data={datas}
-                        tableHeaders={tableHeaders}
-                        tableBodies={tableBodies}
-                        name='channelTypes'/>
-                  </Paper>
-                </Grid>
-            </Grid>
+                        name='browserlngData'
+                        title='Browser Language'
+                        />
+                </div>
+            </div> */}
         </div>
     );
 }

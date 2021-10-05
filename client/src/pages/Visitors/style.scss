@@ -1,0 +1,19 @@
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-right: 15px;
+
+}
+.flex {
+    //width: 100vw;
+    max-width: 85%;
+    margin: 5px;
+}
+.sameRow {
+    height: auto;
+    width: 100%;
+    margin: 5px;
+    background-color: white;
+}

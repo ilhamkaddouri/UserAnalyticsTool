@@ -8,6 +8,8 @@ import { TableChannel } from '../../common/components/ChannelTable/TableChannel'
 import {getVisitsDate} from '../../services/logsService'
 import { ChannelTable } from '../../common/components/ChannelTable/ChannelTable'
 import {DataTable} from '../../common/components/Behavior/DataTable'
+import { TotalVisits } from '../../components/Dashboard/TotalVisits'
+import {getVisitsData} from '../../services/logsService'
 const data = [
     {
         month: 'Jun',
@@ -143,11 +145,15 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
     const { t } = useTranslation()
     const [visitsMonth, setVisitsMonth] = useState([])
     const [visitsDay, setVisitsDay] = useState([])
+    const [visits, setVisits] = useState(0);
 
         useEffect(()=>{
-       
             async function getUserVisits() {
                 let response = await getVisitsDate();
+                let result = await getVisitsData()
+                if(result){
+                    setVisits(result.data.visits);
+                }
                 if (response.data) {
                     setVisitsMonth(response.data.requestsPerMonth);
                     setVisitsDay(response.data.requestsPerDay);
@@ -161,8 +167,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visits')}</span>
                     <div className='dashboard__item chart__item'>
-                    <VisitsChart data={visitsMonth}/>
-                    <span className='info'>2788 visits</span>
+                    
+                    <span className='info' title='total visits until today'>{visits} visits</span>
                     </div>
                     
                 </div>
@@ -174,10 +180,23 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
                 </div>
             </div>
             <div className="container__box">
+            <div className='dashboard__element__container'>
+                    <span className='dashboard__element__title'>{t('Dashboard.visits')}</span>
+                    <div className='dashboard__item chart__item'>
+                    <VisitsChart data={visitsMonth}/>
+                    </div>
+                    
+                </div>
                 <div className='dashboard__element__container'>
                     <span className='dashboard__element__title'>{t('Dashboard.visitsOverTime')}</span>
                     <div className='dashboard__item'>
                         <VisitsChart data={visitsDay}/>
+                    </div>
+                </div>
+                <div className='dashboard__element__container'>
+                    <span className='dashboard__element__title'>{t('Dashboard.visitsOverview')}</span>
+                    <div className='dashboard__item'>
+                        <TotalVisits/>
                     </div>
                 </div>
                 <div className='dashboard__element__container'>
@@ -187,12 +206,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
                     </div>
 
                 </div>
-                {/* <div className='dashboard__element__container'>
-                    <span className='dashboard__element__title'>{t('Dashboard.visitsOverview')}</span>
-                    <div className='dashboard__item'>
-
-                    </div>
-                </div> */}
             </div>
             <div className="container__box">
                 <div className='dashboard__element__container'>
@@ -209,6 +222,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ }) => {
                         tableHeaders={tableHeaders}
                         tableBodies={tableBodies}
                         name='channelTypes'
+                        title='Continent'
                         />
                     </div>
                 </div>

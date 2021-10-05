@@ -7,7 +7,8 @@
     display: flex;
     flex:2;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    height: auto;
 }
 .right__panel{
     flex: 2;
@@ -17,8 +18,8 @@
 
 .visitor__details{
     display: flex;
-
-
+    height: 20%;
+    background-color:rgb(133, 223, 115)
 }
 .visitor__image{
     flex: 2
@@ -74,4 +75,24 @@
 .hidden__details{
     background-color: lightgrey;
     margin-top: 5px;
+}
+
+.map__button{
+    background: none;
+	color: rgb(133, 223, 115);
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.summary{
+    background-color:aqua
+}
+
+.visit_time{
+    font-size: 14px;
+    font-weight: 200;
+    margin-bottom: 5px;
 }

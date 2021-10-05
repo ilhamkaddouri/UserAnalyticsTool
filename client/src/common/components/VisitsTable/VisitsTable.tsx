@@ -13,7 +13,7 @@ import { IconButton } from '@material-ui/core';
 import {Link} from 'react-router-dom'
 import './visitsTabls.scss'
 import { Visit } from '../../components/Visit/Visit'
-import {getVisitsPerTime} from '../../../services/logsService'
+import {getVisitsPerTime, getVisitsTotals} from '../../../services/logsService'
 const useStyles = makeStyles({
     table: {
         width: '100%'
@@ -31,7 +31,7 @@ function createData(name: string, action: number, visit: number) {
 
 
 const item = {
-    code: 'fi'
+    code: 'us'
 }
 interface VisitsTableProps {
 
@@ -42,18 +42,23 @@ export const VisitsTable: React.FC<VisitsTableProps> = ({ }) => {
     const [visitsTimePastHour, setVisitsTimePastHour]= useState([]);
     const [visitsTimePastHalfDay, setVisitsTimePastHalfDay]= useState([]);
     const [visitsTimePastDay, setVisitsTimePastDay]= useState([]);
+    const [visits, setVisits]= useState([]);
     const [total, setTotal] = useState<number>(0)
     useEffect(()=>{
         const getData = async ()=>{
             const result = await getVisitsPerTime();
+            const visitsData = await getVisitsTotals();
             if(result && result.data){
                 await setVisitsTimePastHour(result.data.visitsLastPastHour);
                 await setTotal(visitsTimePastHour.length);
                 setVisitsTimePastHalfDay(result.data.visitsLastPastDay)
                 setVisitsTimePastDay(result.data.visitsLastDay)
             }
+            if(visitsData && visitsData.data){
+                setVisits(visitsData.data);
+            }
         }
-        getData()
+        getData();
     }, [total])
     let rows = [
         createData('Last 24 hours', total, 6),
@@ -95,7 +100,11 @@ export const VisitsTable: React.FC<VisitsTableProps> = ({ }) => {
             </div>
         </div>
         <div className='visits__container'>
-            <Visit item={item}/> 
+            {
+                visits.map((item)=>(
+                    <Visit item={item}/> 
+                ))
+            }
         </div>          
         </>
     );

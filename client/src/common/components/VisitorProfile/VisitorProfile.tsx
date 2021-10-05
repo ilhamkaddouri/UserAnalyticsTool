@@ -1,11 +1,39 @@
-import React, { useState } from 'react'
-import visitor from '../../../common/images/visitor.jpg'
-import './visitorProfile.scss'
-import { Link } from 'react-router-dom'
-import { VisitStepper } from '../VisitStepper/VisitStepper'
+import React, { useState } from 'react';
+import visitor from '../../../common/images/visitor.jpg';
+import './visitorProfile.scss';
+import { Link } from 'react-router-dom';
+import { VisitStepper } from '../VisitStepper/VisitStepper';
+import moment from 'moment';
+import {FavoritesMap} from '../../../components/Behavior/FavoritesMap';
+
 interface VisitorProfileProps {
     item: {
-        code: String
+        url: String,
+    method: String,
+    responseTime: Number,
+    day: String,
+    month: String,
+    year: Number,
+    hour: Number,
+    time: String,
+    date: String,
+    ip: String,
+    countryCode: String,
+    country: String,
+    city: String,
+    latitude: String,
+    longitude: String,
+    region: String,
+    continent: String,
+    language: String,
+    browser: String,
+    device: String,
+    deviceVednor: String,
+    deviceModel: String,
+    os: String,
+    osVersion: String,
+    engine: String,
+    createdAt: Date
     }
 }
 
@@ -21,7 +49,15 @@ export const VisitorProfile: React.FC<VisitorProfileProps> = ({ item }) => {
     const handleMap = ()=>{
         setHideMap(!hideMap)
     }
+    function jsUcfirst(string: String) 
+    {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 
+    function jsLwfirst(string: String) 
+    {
+        return string.charAt(0).toLowerCase() + string.slice(1);
+    }
 
     return (
         <div className="visitor__profile">
@@ -32,30 +68,30 @@ export const VisitorProfile: React.FC<VisitorProfileProps> = ({ item }) => {
                     </div>
                     <div className="visitor__info">
                         <p>Visitor Profile</p>
-                        <span>username</span>
+                        <span>{item.ip}</span>
                         <div className="container">
                             <div className="service__box">
                                 <div className="service__item">
-                                    <span className={`flag-icon flag-icon-${item.code} mx-1`}></span>
-                                    <span className="service__title">Finland</span>
+                                    <span title={`${jsUcfirst(item.country)}`} className={`flag-icon flag-icon-${item.countryCode.toLowerCase()} mx-1`}></span>
+                                    <span title={`${jsUcfirst(item.country)}`} className="service__title">{item.city}, {item.country}</span>
                                 </div>
                             </div>
                             <div className="service__box">
                                 <div className="service__item">
-                                    <img className="icon__image" src="https://img.icons8.com/fluency/48/000000/chrome.png" />
-                                    <span className="service__title">Chrome</span>
+                                    <img title={`${jsUcfirst(item.browser)}`} className="icon__image" src={`https://img.icons8.com/fluency/48/000000/${jsLwfirst(item.browser)}.png`} />
+                                    <span title={`${jsUcfirst(item.browser)}`} className="service__title">{item.browser}</span>
                                 </div>
                             </div>
                             <div className="service__box">
                                 <div className="service__item">
-                                    <img className="icon__image" src="https://img.icons8.com/color/48/000000/windows-10.png" />
-                                    <span className="service__title">Windows</span>
+                                    <img title={`${jsUcfirst(item.os)}`} className="icon__image" src={`https://img.icons8.com/color/48/000000/${jsLwfirst(item.os)}.png`} />
+                                    <span className="service__title">{item.os}</span>
                                 </div>
                             </div>
                             <div className="service__box">
                                 <div className="service__item">
-                                    <img src="https://img.icons8.com/material-outlined/24/000000/monitor.png" />
-                                    <span className="service__title">Desktop</span>
+                                    <img title={`${jsUcfirst(item.device)}`} src={`https://img.icons8.com/material-outlined/24/000000/${jsLwfirst(item.device) ===`desktop` ? `monitor`: jsLwfirst(item.browser)}.png`} />
+                                    <span title={`${jsUcfirst(item.device)}`} className="service__title">{jsUcfirst(item.device)}</span>
                                 </div>
                             </div>
                         </div>
@@ -85,14 +121,20 @@ export const VisitorProfile: React.FC<VisitorProfileProps> = ({ item }) => {
                     <h5>Devices</h5>
                     <div>
                         <img src="https://img.icons8.com/material-outlined/24/000000/monitor.png" />
-                        <p>1 visits from Desktop devices: Generic Desktop (1x)</p>
+                        <p>1 visits from Desktop devices: <b>{jsUcfirst(item.device)}</b></p>
                     </div>
                 </div>
                 <div className="locations">
                     <h5>Location</h5>
-                    <p>1 visit from Masku, Finland <Link to='' onClick={handleMap}>(show on Map)</Link></p>
+                    <p>1 visit from <b> {item.city}, {item.country}</b> <button className='map__button' onClick={handleMap}> <span title={`${jsUcfirst(item.country)}`} className={`flag-icon flag-icon-${item.countryCode.toLowerCase()} mx-1`}></span>(show on Map)</button></p>
                     {
-                        hideMap && <div></div>
+                        hideMap && <FavoritesMap list={[{
+                            city: item.city,
+                            country: item.country,
+                            region: item.region,
+                            lat: Number(item.latitude),
+                            lon: Number(item.longitude),
+                        }]}/>
                     }
                 </div>
             </div>
@@ -100,17 +142,17 @@ export const VisitorProfile: React.FC<VisitorProfileProps> = ({ item }) => {
                 <div className="visit__title" title='click here to view more information' onClick={handleHide}>
                     Visit #
                     <span className='counter'>1</span>
-                    <span>Sunday, August 29, 2021 14:03:21</span>
+                    <span>{moment(item.createdAt).format('MMMM Do YYYY, h:mm:ss a')}</span>
                     {hidden &&
                         <span title='Visitor ID: 43630ea2299819b2
                 Visit ID: 550961
                 Germany
                 GPS (lat/long): 51.299000,9.491000'>
-                            IP: 148.251.0.0
+                            IP: ${item.ip}
                             <br />
                             <span>
                                 <img width='16' className='flag' src='' />
-                                Germany
+                                ${item.country}
                             </span>
                             <div className='visitorReference'>Direct Entry</div>
 

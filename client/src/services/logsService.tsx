@@ -25,6 +25,33 @@ export function getVisitsPerTime(){
     return axios.get(`${LOGS_API_URL}/time`)
 }
 
+export function getDevicesTypes(){
+    return axios.get(`${LOGS_API_URL}/visits/devices`)
+}
+
+export function getDevicesModels(){
+    return axios.get(`${LOGS_API_URL}/visits/devicesModel`)
+}
+
+export function getDevicesBrands(){
+    return axios.get(`${LOGS_API_URL}/devicesBrand`)
+}
+
+export function getVisitsData(){
+    return axios.get(`${LOGS_API_URL}/visits/data`)
+}
+
+export function getVisitsLocations(){
+    return axios.get(`${LOGS_API_URL}/visits/locations`)
+}
+
+export function getVisitorsUrlss(){
+    return axios.get(`${LOGS_API_URL}/visits/urls`)
+}
+
+export function getVisitsTotals(){
+    return axios.get(`${LOGS_API_URL}/visits/total`)
+}
 export function getVerify(token: string){
     return axios.get(`${LOGS_API_URL}/`,{
         headers: { "auth-token": token },

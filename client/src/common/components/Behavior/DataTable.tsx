@@ -14,6 +14,7 @@ import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable'
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import GetAppIcon from '@material-ui/icons/GetApp';
+import { IconButton } from '@material-ui/core';
 import './dataTable.scss'
 
 const options = {
@@ -28,14 +29,14 @@ const useStyles = makeStyles({
   },
   container: {
     maxHeight: 440
-  }
+  },
 });
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
-      backgroundColor: theme.palette.primary.dark,
-      color: theme.palette.secondary.dark,
+      backgroundColor: theme.palette.success.light,
+      //color: theme.palette.secondary.light,
     },
     body: {
       fontSize: 14,
@@ -109,7 +110,7 @@ const getProperty = (obj: any, prop: any) => {
 
 
 
-export function DataTable({ data, tableHeaders, tableBodies, name }: { data: any, tableHeaders: any, tableBodies: any, name: string }) {
+export function DataTable({ data, tableHeaders, tableBodies, name, title }: { data: any, tableHeaders: any, tableBodies: any, name: string, title: string }) {
   const classes = useStyles();
   const [order, setOrder] = React.useState<Order>('asc');
   const [orderBy, setOrderBy] = React.useState(tableHeaders[1].id);
@@ -161,17 +162,23 @@ export function DataTable({ data, tableHeaders, tableBodies, name }: { data: any
 
   return (
     <Paper className={classes.root}>
-      <div className='div'>
-      <button title='Export to Excel' className='button' onClick={()=> downloadExcel()}><GetAppIcon/> </button>
-      <button title='Export to PDF' className='button' onClick={()=> downloadPdf()}> <PictureAsPdfIcon/> </button>
+      <div>
+        <div className='left'>
+          <h4>{title}</h4>
+        </div>
+        <div className='right'>
+        <IconButton title='Export to Excel' style={{color: '#7cbd7f '}} size='small' onClick={()=> downloadExcel()}><GetAppIcon/></IconButton>
+        <IconButton title='Export to PDF' style={{color: '#7cbd7f '}} size='small' onClick={()=> downloadPdf()}><PictureAsPdfIcon/></IconButton>
+        </div>
+       
       </div>
      
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table" id='my-table'>
           <TableHead>
-            <TableRow>
+            <StyledTableRow>
               {tableHeaders.map((header: any, index: any) => (
-                <TableCell key={index} sortDirection={orderBy === header.id ? order : false}>
+                <StyledTableCell key={index} sortDirection={orderBy === header.id ? order : false}>
                   <TableSortLabel
                     active={orderBy === header.id}
                     direction={orderBy === header.id ? order : 'asc'}
@@ -182,9 +189,9 @@ export function DataTable({ data, tableHeaders, tableBodies, name }: { data: any
                   </TableSortLabel>
 
 
-                </TableCell>
+                </StyledTableCell>
               ))}
-            </TableRow>
+            </StyledTableRow>
           </TableHead>
           <TableBody>
             {stableSort(data, getComparator(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((data: any) => (

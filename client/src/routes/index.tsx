@@ -6,7 +6,7 @@ import {RealTimeMap} from '../pages/Visitors/RealTimeMap'
 import {VisitsLogs} from '../pages/Visitors/VisitsLogs'
 import {Locations} from '../pages/Visitors/Locations'
 import {VisitsTime} from '../pages/Visitors/VisitsTime'
-
+import {Devices} from '../pages/Visitors/Devices'
 
 import {Behavior} from '../pages/Behavior/Behavior'
 import { Pages } from '../pages/Behavior/Pages'
@@ -34,6 +34,8 @@ export const Router: React.FC<indexProps> = ({}) => {
             <Route component={VisitsLogs} path="/visitors/visitsLog" exact />
             <Route component={Locations} path="/visitors/locations" exact />
             <Route component={VisitsTime} path="/visitors/times" exact />
+            <Route component={Devices} path="/visitors/devices" exact />
+
 
             <Route component={Behavior} path="/behavior" exact/>
             <Route component={Pages} path="/pages" exact/>

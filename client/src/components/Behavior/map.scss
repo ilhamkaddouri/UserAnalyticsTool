@@ -1,0 +1,18 @@
+.leaflet-container {
+    height: 100px;
+}
+
+.hot-chocolate-icon {
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px black;
+}
+
+.hot-chocolate-icon:after {
+    display: block;
+    width: 30px;
+    height: 30px;
+    content: "🧑";
+    font-weight:bolder;
+    font-size: 20px;
+}

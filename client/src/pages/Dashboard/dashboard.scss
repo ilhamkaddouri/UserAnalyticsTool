@@ -1,7 +1,7 @@
 .dashboard__container{
     display: flex;
     justify-content: space-between;
-    height: 100vh;
+    height: 100%;
 }
 
 // .dashboard__container div{
@@ -38,9 +38,10 @@
 }
 
 .info{
-    font-size: 13px;
+    font-size: 17px;
     color: green;
     padding: 5px;
+    margin:auto; display:table;
 }
 
 .container__box{
@@ -49,7 +50,7 @@
 
 @media only screen and (max-width: 1000px) {
     .dashboard__container{
-        width: 100vw;
+        width: 100%;
     }
   }
 

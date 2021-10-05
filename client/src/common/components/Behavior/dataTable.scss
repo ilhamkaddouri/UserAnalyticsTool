@@ -8,7 +8,20 @@
 	outline: inherit;
 }
 
-.div{
-    text-align: right;
+.duv{
+	display: inline-block;
+}
+.right{
+    //text-align: right;
+	float: right;
     margin: 5px 10px;
+	display: inline-block;
+}
+
+.left{
+    //text-align: left;
+	float: left;
+    margin: 5px 10px;
+	//text-align: center;
+	display: inline-block;
 }

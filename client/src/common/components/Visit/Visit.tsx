@@ -6,15 +6,40 @@ import RecentActorsIcon from '@material-ui/icons/RecentActors';
 import PersonIcon from '@material-ui/icons/Person';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-import moment from 'moment'
+import moment from 'moment';
 import { VisitorProfile } from '../VisitorProfile/VisitorProfile'
 interface VisitProps {
   item: {
-    code: String
+    url: String,
+    method: String,
+    responseTime: Number,
+    day: String,
+    month: String,
+    year: Number,
+    hour: Number,
+    time: String,
+    date: String,
+    ip: String,
+    countryCode: String,
+    country: String,
+    city: String,
+    latitude: String,
+    longitude: String,
+    region: String,
+    continent: String,
+    language: String,
+    browser: String,
+    device: String,
+    deviceVednor: String,
+    deviceModel: String,
+    os: String,
+    osVersion: String,
+    engine: String,
+    createdAt: Date
   }
 }
 const item = {
-  code: 'fi'
+  code: 'FI'
 }
 
 function rand() {
@@ -77,6 +102,16 @@ export const Visit: React.FC<VisitProps> = ({ item }) => {
     setOpen(true);
   };
 
+  function jsUcfirst(string: String) 
+    {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    function jsLwfirst(string: String) 
+    {
+        return string.charAt(0).toLowerCase() + string.slice(1);
+    }
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -88,23 +123,21 @@ export const Visit: React.FC<VisitProps> = ({ item }) => {
   return (
     <div className="visit__container">
       <div className='visit__user'>
-        <span className="visit__time">{moment().format('MMMM Do YYYY, h:mm:ss a')}</span>
+        <span className="visit__time">{moment(item.createdAt).format('MMMM Do YYYY, h:mm:ss a')}</span>
         <div className="visit__details">
-          <span title='Country: Finland
-          Browser Language:  language eng
-          IP: 12.36.98.23
-          Visitor ID: XV67YH
-          ' className={`flag-icon flag-icon-${item.code} mx-0.5`}></span>
-          <img className="item__image" src="https://img.icons8.com/fluency/48/000000/chrome.png" />
-          <img title='Operating System: Windows 10' className="item__image" src="https://img.icons8.com/color/48/000000/windows-10.png" />
-          <img title=' Device type: Desktop
-          Device brand: Unknown
-          Device model: Generic Desktop
-          Resolution: 1280x1024
-          ' src="https://img.icons8.com/material-outlined/24/000000/monitor.png" className="item__image"/>
-          {/* <img src="https://img.icons8.com/color/48/000000/ubuntu--v1.png" />
-                <img src="https://img.icons8.com/color/48/000000/linux--v1.png" />
-                <img src="https://img.icons8.com/color/40/000000/mac-logo.png" /> */}
+          <span title={
+            `Country: ${item.country}
+          Browser Language:  ${item.language}
+          IP: ${item.ip}
+          ` }
+          className={`flag-icon flag-icon-${item.countryCode.toLowerCase()} mx-0.5`}></span>
+          <img className="item__image" title={`${jsUcfirst(item.browser)}`} src={`https://img.icons8.com/fluency/48/000000/${jsLwfirst(item.browser) === 'edge' ? 'ms-edge' : jsLwfirst(item.browser)}.png`} />
+          <img title={`Operating System: ${item.os}`} className="item__image" src={`https://img.icons8.com/color/48/000000/${jsLwfirst(item.os)}.png`} />
+          <img title={` Device type: ${jsUcfirst(item.device)}
+          Device brand: ${jsUcfirst(item.deviceVednor)}
+          Device model: ${jsUcfirst(item.deviceModel)}
+          `}
+          src={`https://img.icons8.com/material-outlined/24/000000/${jsLwfirst(item.device) ===`desktop` ? `monitor`: jsLwfirst(item.browser)}.png`} className="item__image"/>
           <IconButton onClick={handleOpen} title='View Visitor Profile Details'>
             <PersonIcon style={{color : 'black'}} />
           </IconButton>
