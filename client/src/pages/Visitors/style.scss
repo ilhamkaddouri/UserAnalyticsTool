@@ -1,14 +1,10 @@
 .container {
-    height: 100vh;
-    width: 100%;
     display: flex;
     flex-direction: column;
-    padding-right: 15px;
-
 }
 .flex {
     //width: 100vw;
-    max-width: 85%;
+    display: flex;
     margin: 5px;
 }
 .sameRow {

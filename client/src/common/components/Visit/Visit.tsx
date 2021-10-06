@@ -131,7 +131,7 @@ export const Visit: React.FC<VisitProps> = ({ item }) => {
           IP: ${item.ip}
           ` }
           className={`flag-icon flag-icon-${item.countryCode.toLowerCase()} mx-0.5`}></span>
-          <img className="item__image" title={`${jsUcfirst(item.browser)}`} src={`https://img.icons8.com/fluency/48/000000/${jsLwfirst(item.browser) === 'edge' ? 'ms-edge' : jsLwfirst(item.browser)}.png`} />
+          <img className="item__image" title={`${jsUcfirst(item.browser)}`} src={`https://img.icons8.com/color/48/000000/${jsLwfirst(item.browser) === `edge` ? `ms-edge` : jsLwfirst(item.browser)}.png`} />
           <img title={`Operating System: ${item.os}`} className="item__image" src={`https://img.icons8.com/color/48/000000/${jsLwfirst(item.os)}.png`} />
           <img title={` Device type: ${jsUcfirst(item.device)}
           Device brand: ${jsUcfirst(item.deviceVednor)}

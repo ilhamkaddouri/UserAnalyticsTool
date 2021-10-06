@@ -78,7 +78,7 @@ export const VisitorProfile: React.FC<VisitorProfileProps> = ({ item }) => {
                             </div>
                             <div className="service__box">
                                 <div className="service__item">
-                                    <img title={`${jsUcfirst(item.browser)}`} className="icon__image" src={`https://img.icons8.com/fluency/48/000000/${jsLwfirst(item.browser)}.png`} />
+                                    <img title={`${jsUcfirst(item.browser)}`} className="icon__image" src={`https://img.icons8.com/color/48/000000/${jsLwfirst(item.browser) === `edge` ? `ms-edge` : jsLwfirst(item.browser)}.png`} />
                                     <span title={`${jsUcfirst(item.browser)}`} className="service__title">{item.browser}</span>
                                 </div>
                             </div>

@@ -42,10 +42,6 @@ export const sidebarData = [
                 path: '/visitors/times'
             },
             {
-                title: 'Visitors.realtime',
-                path: '/visitors/realtime'
-            },
-            {
                 title: 'Visitors.realtimeMap',
                 path: '/visitors/realtimeMap'
             },
@@ -73,7 +69,7 @@ export const sidebarData = [
         subMenu: [
             {
                 title: 'Behavior.pages',
-                path: '/pages',
+                path: '/behavior',
             },
             {
                 title: 'Behavior.entryPages',
@@ -98,6 +94,28 @@ export const sidebarData = [
             {
                 title: 'Behavior.performance',
                 path: '/performance',
+            },
+
+        ]
+    },
+    {
+        title: 'Goals.title',
+        path: '/goals',
+        icon: <AdjustIcon fontSize="small"/> ,
+        iconClosed: <ExpandMoreIcon fontSize="small"/> ,
+        iconOpened: <ExpandLessIcon fontSize="small"/> ,
+        subMenu: [
+            {
+                title: 'Goals.overview',
+                path: '/goals/overview',
+            },
+            {
+                title: 'Goals.contractUsage',
+                path: '/goals/contractUsage',
+            },
+            {
+                title: 'Goals.manage',
+                path: '/goals/manageGoals',
             },
 
         ]

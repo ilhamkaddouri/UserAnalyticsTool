@@ -65,7 +65,7 @@ export const FavoritesMap: React.FC<FavoritesMapProps> = ({list}) => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?api_key=75e43b4b-8587-4fee-8145-48ee75741c39"
             />
             {list.map((item, index) =>
-                <Marker icon={icon} key={index} position={[item.lat, item.lon]} title={`${item.city} at ${item.country}`}>
+                <Marker icon={icon} key={index} position={[item.lat, item.lon]} title={`${item.city} at ${item.country}, ${item.uniqueVisitors} visitors`}>
                     <Popup>
                         <strong>{item.city} at {item.country}</strong><br />
                         <p>Total of visitors <strong>{item.uniqueVisitors}</strong> on this location.</p>

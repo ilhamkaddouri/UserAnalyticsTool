@@ -112,7 +112,7 @@ export const Devices: React.FC<DevicesProps> = ({ }) => {
                         title='Device Brand'
                         />
                 </div>
-                <div className="sameRow">Content</div>
+
             </div>
         </div>
 

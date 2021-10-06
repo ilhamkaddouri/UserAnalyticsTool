@@ -25,7 +25,8 @@ const options = {
 };
 const useStyles = makeStyles({
   root: {
-    width: "100%"
+    width: "100%",
+    height:'100%'
   },
   container: {
     maxHeight: 440
@@ -35,7 +36,7 @@ const useStyles = makeStyles({
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
-      backgroundColor: theme.palette.success.light,
+      backgroundColor: theme.palette.warning.light,
       //color: theme.palette.secondary.light,
     },
     body: {

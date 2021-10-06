@@ -13,7 +13,7 @@ import { IconButton } from '@material-ui/core';
 import {Link} from 'react-router-dom'
 import './visitsTabls.scss'
 import { Visit } from '../../components/Visit/Visit'
-import {getVisitsPerTime, getVisitsTotals} from '../../../services/logsService'
+import {getVisitsPerTime, getVisitsTotals, getLastVisitsTotals} from '../../../services/logsService'
 const useStyles = makeStyles({
     table: {
         width: '100%'
@@ -25,8 +25,8 @@ const TableHeadColor = withStyles(theme => ({
     }
   }))(MuiTableHead);
 
-function createData(name: string, action: number, visit: number) {
-    return { name, action, visit };
+function createData(name: string, visit: number) {
+    return { name, visit };
 }
 
 
@@ -39,18 +39,19 @@ interface VisitsTableProps {
 
 export const VisitsTable: React.FC<VisitsTableProps> = ({ }) => {
     const classes = useStyles();
-    const [visitsTimePastHour, setVisitsTimePastHour]= useState([]);
-    const [visitsTimePastHalfDay, setVisitsTimePastHalfDay]= useState([]);
-    const [visitsTimePastDay, setVisitsTimePastDay]= useState([]);
+    const [visitsTimePastHour, setVisitsTimePastHour]= useState<number>(0);
+    const [visitsTimePastHalfDay, setVisitsTimePastHalfDay]= useState<number>(0);
+    const [visitsTimePastDay, setVisitsTimePastDay]= useState<number>(0);
     const [visits, setVisits]= useState([]);
     const [total, setTotal] = useState<number>(0)
     useEffect(()=>{
         const getData = async ()=>{
-            const result = await getVisitsPerTime();
+            const result = await getLastVisitsTotals();
             const visitsData = await getVisitsTotals();
+            console.log(result.data.visitsLastPastDay)
             if(result && result.data){
                 await setVisitsTimePastHour(result.data.visitsLastPastHour);
-                await setTotal(visitsTimePastHour.length);
+                //await setTotal(visitsTimePastHour.length);
                 setVisitsTimePastHalfDay(result.data.visitsLastPastDay)
                 setVisitsTimePastDay(result.data.visitsLastDay)
             }
@@ -61,9 +62,9 @@ export const VisitsTable: React.FC<VisitsTableProps> = ({ }) => {
         getData();
     }, [total])
     let rows = [
-        createData('Last 24 hours', total, 6),
-        createData('Last 12 hours', 1, 9),
-        createData('Last 30 minutes', 4, 16),
+        createData('Last 24 hours', visitsTimePastHour),
+        createData('Last 12 hours', visitsTimePastHalfDay),
+        createData('Last 30 minutes', visitsTimePastDay),
     ];
     return (
         <>
@@ -72,7 +73,6 @@ export const VisitsTable: React.FC<VisitsTableProps> = ({ }) => {
                 <TableHeadColor>
                     <TableRow>
                         <TableCell>Date</TableCell>
-                        <TableCell align="right">Actions</TableCell>
                         <TableCell align="right">Visits</TableCell>
                     </TableRow>
                 </TableHeadColor>
@@ -82,7 +82,6 @@ export const VisitsTable: React.FC<VisitsTableProps> = ({ }) => {
                             <TableCell component="th" scope="row">
                                 {row.name}
                             </TableCell>
-                            <TableCell align="right">{row.action}</TableCell>
                             <TableCell align="right">{row.visit}</TableCell>
                         </TableRow>
                     ))}
@@ -96,7 +95,7 @@ export const VisitsTable: React.FC<VisitsTableProps> = ({ }) => {
                 </IconButton>
             </div>
             <div>
-                <Link to='./' className="link__to__detail">View detailed visits</Link>
+                <Link to='/visitors/visitsLog' className="link__to__detail">View detailed visits</Link>
             </div>
         </div>
         <div className='visits__container'>

@@ -52,6 +52,19 @@ export function getVisitorsUrlss(){
 export function getVisitsTotals(){
     return axios.get(`${LOGS_API_URL}/visits/total`)
 }
+
+export function getLastVisitsTotals(){
+    return axios.get(`${LOGS_API_URL}/visits/time`)
+}
+
+export function getOs(){
+    return axios.get(`${LOGS_API_URL}/visits/os`)
+}
+
+export function getBrowsers(){
+    return axios.get(`${LOGS_API_URL}/visits/browser`)
+}
+
 export function getVerify(token: string){
     return axios.get(`${LOGS_API_URL}/`,{
         headers: { "auth-token": token },
